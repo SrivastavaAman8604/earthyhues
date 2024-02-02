@@ -1,6 +1,25 @@
-import React from 'react'
+import React ,{useState,useEffect}from 'react'
+import axios from 'axios';
 
 function Header() {
+
+  const [data,setData] = useState([]);
+
+  useEffect(()=>{
+    axios.get('https://www.earthyhues.com/home-menu')
+    .then((response) => {
+      if (Array.isArray(response.data) && response.data.length >= 1) {
+        setData(response.data);
+        console.log(response.data);
+      } else {
+        console.error("Invalid response format or insufficient data");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  },[])
+  
   return (
     <header className="main-header main-header--home-three sticky-header sticky-header--normal">
       <div className="container">

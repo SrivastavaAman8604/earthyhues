@@ -4,6 +4,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import TextTransition, { presets } from 'react-text-transition';
+import Typewriter from 'typewriter-effect';
+
 
 
 const Banner = () => {
@@ -309,7 +312,7 @@ const Banner = () => {
           }'
         >
         <div className="item">
-          <Carousel autoPlay={true} autoPlaySpeed={3000} infiniteLoop={true} showIndicators={false} showThumbs={false}>
+          <Carousel autoPlay={true} autoPlaySpeed={3000} infiniteLoop={true} showIndicators={true} showThumbs={false} showArrows={false}>
             {data.map((item) => (
               <div key={item.banner_id}>
                 {/* <img src={item.small} alt={item.image_name} /> */}
@@ -328,15 +331,15 @@ const Banner = () => {
             
               <div className="container">
                 <div className="main-slider-one__content">
-                      {/* <Carousel autoPlay={true} autoPlaySpeed={3000} infiniteLoop={true} showIndicators={false} showThumbs={false} showArrows={false} showStatus={false}>
+                    {/* <Carousel autoPlay={true} autoPlaySpeed={3000} infiniteLoop={true} showIndicators={false} showThumbs={false} showArrows={false} showStatus={false}>
                       {cap.map((item) => (
                         <h3 className="main-slider-one__title" >
-                        Find Your &nbsp;
-                          <span className="font-bernadette-rough font-size" key={item.banner_id} >{item.banner_text}</span>{" "}
-                        <img src="assets/images/shapes/slider-1-shape-2.png" alt="trevlo"/>
+                          Find Your &nbsp;
+                            <span className="font-bernadette-rough font-size" key={item.banner_id} >{item.banner_text}</span>
+                            <img src="assets/images/shapes/slider-1-shape-2.png" alt="trevlo"/> 
                         </h3>
-                          ))}
-                          </Carousel> */}
+                      ))}
+                    </Carousel> */}
                           {/* <h2 class="rw-sentence">
 					
                             <h3 className="rw-words rw-words-1 main-slider-one__title">
@@ -346,21 +349,34 @@ const Banner = () => {
                               ))}
                             </h3>
                         </h2> */}
-                        <div class="content">
-                          <div class="">
-                            <p class="content__container__text main-slider-one__title">
-                            Find Your
-                            </p>
-                            <div className="content__container__list">
-                            {cap.map((item) => (
-                                <p class="content__container__list__item font-bernadette-rough font-size" key={item.banner_id}>{item.banner_text}</p>
-                              ))}
+                        <div className="content w-100 my-5 py-5">
+                          <div class="w-100">
+                            
+                            <div className="d-flex justify-content-center">
+                            {/* {cap.map((item) => ( 
+                              <div key={item.banner_id}>*/}
+                               <span className='display-4 main-slider-three__title'> Find Your&nbsp;</span>&nbsp;
+                                <Typewriter 
+                                  options={{
+                                    strings: cap.map((item) => `<span class="font-bernadette-rough display-4">${item.banner_text}</span>`),
+                                    autoStart: true,
+                                    loop: true,
+                                    cursor: '',
+                                  }}
+                                />
+                              {/* </div> 
+                             ))}*/}
+                             
+                              {/*<TextTransition springConfig={presets.wobbly} className="ml-5 my-5 py-5"> 
+                                   <p class="content__container__list__item font-bernadette-rough font-size py-5 mt-2 "  key={item.banner_id}> {item.banner_text}</p> 
+                                   Find Your
+                                  <span class="content__container__list__item font-bernadette-rough font-size py-5 mt-5 "  key={item.banner_id}> {item.banner_text}</span>
+                                  
+                            </TextTransition>*/}
                             </div>
                           </div>
-                       
-                </div>
+                        </div>
               </div>
-            
         </div>
       
           
