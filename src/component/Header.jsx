@@ -1,32 +1,43 @@
-import React ,{useState,useEffect}from 'react'
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// import { Link } from 'react-router-dom';
 
 function Header() {
+  const [data, setData] = useState({});
+  const [destinations, setDestinations] = useState([]);
+  const [passions, setPassions] = useState([]);
 
-  const [data,setData] = useState([]);
-
-  useEffect(()=>{
+  useEffect(() => {
     axios.get('https://www.earthyhues.com/home-menu')
-    .then((response) => {
-      if (Array.isArray(response.data) && response.data.length >= 1) {
-        setData(response.data);
-        console.log(response.data);
-      } else {
-        console.error("Invalid response format or insufficient data");
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  },[])
-  
+      .then((response) => {
+        if (response.data && Array.isArray(response.data)) {
+          setData(response.data);
+          if (Array.isArray(response.data[0].destination)) {
+            setDestinations(response.data[0].destination);
+          } else {
+            console.error("Invalid destination data format");
+          }
+          if (Array.isArray(response.data[0].passion)) {
+            setPassions(response.data[0].passion);
+          } else {
+            console.error("Invalid passion data format");
+          }
+        } else {
+          console.error("Invalid response format or insufficient data");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <header className="main-header main-header--home-three sticky-header sticky-header--normal">
       <div className="container">
         <div className="main-header__inner">
           <div className="main-header__left">
             <div className="main-header__logo">
-              <a href="index.html">
+              <a href="/">
                 <img
                   src="assets/earthyhues-image/logo.png"
                   alt="Trevlo HTML"
@@ -52,53 +63,22 @@ function Header() {
                 <li className="dropdown">
                   <a href="/">Destinations</a>
                   <ul className="sub-menu">
-                    <li>
-                      <a href="/">Bhutan</a>
-                    </li>
-                    <li>
-                      <a href="/">Botswana</a>
-                    </li>
-                    <li>
-                      <a href="/">Egypt</a>
-                    </li>
-                    <li>
-                      <a href="/">Kenya</a>
-                    </li>
-                    <li>
-                      <a href="/">Mauritius</a>
-                    </li>
-                    <li>
-                      <a href="/">Meghalaya</a>
-                    </li>
-                    <li>
-                      <a href="/">Rajasthan</a>
-                    </li>
-                    <li>
-                      <a href="/">Rwanda</a>
-                    </li>
-                    <li>
-                      <a href="/">Seychelles</a>
-                    </li>
-                    <li>
-                      <a href="/">Sikkim</a>
-                    </li>
+                    {destinations.map((destination) => (
+                      <li key={destination.destination_id}>
+                        <a href={`https://www.earthyhues.com/destination/${destination.destination_url}`}>{destination.destination_name}</a>
+                      </li>
+                    ))}
                   </ul>
                 </li>
                 <li className="dropdown">
                   <a href="/">Passion</a>
                   <ul className="sub-menu">
-                    <li>
-                      <a href="/">Wildlife</a>
-                    </li>
-                    <li>
-                      <a href="/">Big Cats</a>
-                    </li>
-                    <li>
-                      <a href="/">Sun, Sand and Dunes</a>
-                    </li>
-                    <li>
-                      <a href="/">Beach Chill</a>
-                    </li>
+                    {passions.map((item) => (
+                      <li key={item.passion_id}>
+                        <a href={`https://www.earthyhues.com/passion/${item.passion_url}`}>{item.passion_name}</a>
+                        
+                      </li>
+                    ))}
                   </ul>
                 </li>
                 <li>
@@ -133,11 +113,6 @@ function Header() {
                     <span className="icon-search" />
                   </a>
                 </li>
-                {/*<li class="main-header__search-user-item">
-                        <a href="/" class="main-header__user">
-                        <span class="icon-user-1"></span>
-                        </a>
-                     </li>*/}
               </ul>
               {/* /.main-header__search-user */}
             </div>
@@ -152,4 +127,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Header;

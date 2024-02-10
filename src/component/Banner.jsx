@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import TextTransition, { presets } from 'react-text-transition';
+// import TextTransition, { presets } from 'react-text-transition';
 import Typewriter from 'typewriter-effect';
 
 
@@ -23,15 +23,14 @@ const Banner = () => {
         if (Array.isArray(response.data) && response.data.length >= 2) {
           setData(response.data[1]);console.log(response.data);
           if (Array.isArray(response.data[0].banner_caption)) {
-            setCap(response.data[0].banner_caption);console.log(response.data.banner_caption);
+            setCap(response.data[0].banner_caption);
+            console.log(response.data.banner_caption);
           } else {
             console.error("Invalid banner caption data format");
           }
         } else {
           console.error("Invalid response format or insufficient data");
-        }
-
-        
+        } 
       })
       .catch((error) => {
         console.error(error);
