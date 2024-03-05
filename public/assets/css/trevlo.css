@@ -4737,7 +4737,10 @@ path {
   position: absolute;
   top: 100%;
   left: -25px;
-  min-width: 265px;
+  /* min-width: 265px; */
+  min-width: 450px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;

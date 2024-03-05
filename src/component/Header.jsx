@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header() {
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
   const [destinations, setDestinations] = useState([]);
   const [passions, setPassions] = useState([]);
 
@@ -11,7 +11,7 @@ function Header() {
     axios.get('https://www.earthyhues.com/home-menu')
       .then((response) => {
         if (response.data && Array.isArray(response.data)) {
-          setData(response.data);
+          // setData(response.data);
           if (Array.isArray(response.data[0].destination)) {
             setDestinations(response.data[0].destination);
           } else {
@@ -39,7 +39,7 @@ function Header() {
             <div className="main-header__logo">
               <a href="/">
                 <img
-                  src="assets/earthyhues-image/logo.png"
+                  src="../assets/earthyhues-image/logo.png"
                   alt="Trevlo HTML"
                   width={146}
                 />
@@ -65,7 +65,8 @@ function Header() {
                   <ul className="sub-menu">
                     {destinations.map((destination) => (
                       <li key={destination.destination_id}>
-                        <a href={`https://www.earthyhues.com/destination/${destination.destination_url}`}>{destination.destination_name}</a>
+                        <Link to={`/destinations/${destination.destination_url}`}>{destination.destination_name}</Link>
+                        {/* <a href='/destination'>{destination.destination_name}</a> */}
                       </li>
                     ))}
                   </ul>
@@ -75,23 +76,24 @@ function Header() {
                   <ul className="sub-menu">
                     {passions.map((item) => (
                       <li key={item.passion_id}>
-                        <a href={`https://www.earthyhues.com/passion/${item.passion_url}`}>{item.passion_name}</a>
+                        {/* <a href={`/passion/${item.passion_url}`}>{item.passion_name}</a> */}
+                        <Link to={`/passion/${item.passion_url}`}>{item.passion_name}</Link>
                         
                       </li>
                     ))}
                   </ul>
                 </li>
                 <li>
-                  <a href="/">Packages</a>
+                  <Link to="/packages">Packages</Link>
                 </li>
                 <li>
-                  <a href="/">Testimonials</a>
+                  <Link to="/testimonial">Testimonials</Link>
                 </li>
                 <li>
-                  <a href="/">Conscious Travel</a>
+                  <Link to="/conscious-travel">Conscious Travel</Link>
                 </li>
                 <li>
-                  <a href="/">Travel Blogs</a>
+                  <Link to="/blog">Travel Blogs</Link>
                 </li>
               </ul>
             </nav>

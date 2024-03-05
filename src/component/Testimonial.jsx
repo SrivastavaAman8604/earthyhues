@@ -144,7 +144,7 @@ function Testmonial() {
                   <span className="icon-star" />
                   <span className="icon-star" />
                 </div>  */}
-                <div className="testimonials-card__quote pt-5 mt-2 text-center" >{item.feedback_detail.substring(0,210)}</div>
+                <div className="testimonials-card__quote pt-5 mt-2 text-center" dangerouslySetInnerHTML={{__html:  item.feedback_detail.substring(0,210)}}>{}</div>
                 <a href="/" className="trevlo-btn trevlo-btn--base mt-4">
                   <span>Read More</span>
                 </a>              

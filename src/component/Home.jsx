@@ -748,7 +748,9 @@ const Home = () => {
     {/* /.container */}
   </section>
   {/* CTA Two End */}
-  <Footer/>
+
+  {/* <Footer/> */}
+  
   {/* /.main-footer */}
   {/* /.page-wrapper */}
   <div className="mobile-nav__wrapper">

@@ -22,7 +22,7 @@ function Footer() {
                 <h2 className="footer-widget__title">Company</h2>
                 <div className="main-footer__logo-box">
                 <img
-                    src="assets/earthyhues-image/logo.png"
+                    src="../assets/earthyhues-image/logo.png"
                     alt="logo-dark"
                     className="main-footer__logo"
                 />
@@ -89,7 +89,7 @@ function Footer() {
                     <a href="/">Meet the Guide</a>
                 </li>
                 <li>
-                    <a href="/">Contact Now</a>
+                    <a href="/WBlog">Contact Now</a>
                 </li>
                 </ul>
                 {/* /.footer-widget__links */}
