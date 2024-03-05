@@ -65,10 +65,7 @@ function Header() {
                   <ul className="sub-menu">
                     {destinations.map((destination) => (
                       <li key={destination.destination_id}>
-
                         <Link to={`/destinations/${destination.destination_url}`}>{destination.destination_name}</Link>
-
-
                       </li>
                     ))}
                   </ul>
@@ -78,11 +75,7 @@ function Header() {
                   <ul className="sub-menu">
                     {passions.map((item) => (
                       <li key={item.passion_id}>
-
                         <Link to={`/passion/${item.passion_url}`}>{item.passion_name}</Link>
-
-
-                        
                       </li>
                     ))}
                   </ul>
