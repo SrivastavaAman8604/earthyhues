@@ -65,8 +65,13 @@ function Header() {
                   <ul className="sub-menu">
                     {destinations.map((destination) => (
                       <li key={destination.destination_id}>
+
                         <Link to={`/destinations/${destination.destination_url}`}>{destination.destination_name}</Link>
                         {/* <a href='/destination'>{destination.destination_name}</a> */}
+=======
+{/*                         <a href={`https://www.earthyhues.com/destination/${destination.destination_url}`}>{destination.destination_name}</a> */}
+                        <a href='/destination'>{destination.destination_name}</a>
+
                       </li>
                     ))}
                   </ul>
@@ -76,8 +81,13 @@ function Header() {
                   <ul className="sub-menu">
                     {passions.map((item) => (
                       <li key={item.passion_id}>
+
                         {/* <a href={`/passion/${item.passion_url}`}>{item.passion_name}</a> */}
                         <Link to={`/passion/${item.passion_url}`}>{item.passion_name}</Link>
+
+{/*                         <a href={`https://www.earthyhues.com/passion/${item.passion_url}`}>{item.passion_name}</a> */}
+                        <a href='/passion'>{item.passion_name}</a>
+
                         
                       </li>
                     ))}
