@@ -12,6 +12,10 @@ import Testimonial from './Pages/Testimonial';
 import Blog from './Pages/Blog';
 import Conscious from './Pages/Conscious';
 import WBlog from './Pages/WBlog';
+import Affiliation from './component/Affiliation';
+import PackageDetail from './Pages/PackageDetail';
+import TestimonialDetail from './Pages/TestimonialDetail';
+import TravelBlogDetail from './Pages/TravelBlogDetail';
 
 function App() {
 
@@ -29,7 +33,11 @@ function App() {
         <Route path='/conscious-travel' element={<Conscious/>}/>
         <Route path='/blog' element={<Blog/>}/>
         <Route path='/write-a-blog' element={<WBlog/>}/>
+        <Route path='/packageDetail' element={<PackageDetail/>}/>
+        <Route path='/testimonialDetail' element={<TestimonialDetail/>}/>
+        <Route path='/travelblogdetail' element={<TravelBlogDetail/>}/>
       </Routes>
+      <Affiliation/>
       <Footer/>
     </Router>
   );
