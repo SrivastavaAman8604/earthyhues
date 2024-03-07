@@ -187,7 +187,9 @@ function Blog() {
                   </ul>
                   {/* /.blog__card-meta */}
                   <h3 className="blog__card-title">
+                   <Link to='/TravelBlogDetail'>
                    {item.blog_head_name}
+                   </Link>
                   </h3>
                   <p className="blog__card-text" dangerouslySetInnerHTML={{__html: item.blog_intro}}>
                     {}
