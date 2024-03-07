@@ -195,7 +195,6 @@ function Blog() {
                   <p className="blog__card-text" dangerouslySetInnerHTML={{__html: item.blog_intro}}>
                     {}
                   </p>
-                  
                 </div>
                 {/* /.blog-details__card-content */}
               </div>
