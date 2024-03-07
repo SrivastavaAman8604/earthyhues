@@ -40,10 +40,10 @@ function Testimonial() {
                            <div className="card">
                                <img className="card-img-top" src={index.testimonials_image} alt={index.testimonials_url} style={{aspectRatio:'3/2'}}/>
                                <div className="card-body">
-                                   <h4 className='blog-card__title'><a>{index.testimonials_name}</a></h4>
+                                   <h4 className='blog-card__title'><a href="/TestimonialDetail">{index.testimonials_name}</a></h4>
                                    <p style={{color:'#13a5b6'}}>{index.testimonials_customer_name}</p>
                                    <p className="card-text" dangerouslySetInnerHTML={{__html: index.testimonials_details.substring(0,150)}}>{}</p>
-                                   <a href="/">Explore More</a>
+                                   <a href="/TestimonialDetail">Explore More</a>
                                </div>
                            </div>
                         </div>
