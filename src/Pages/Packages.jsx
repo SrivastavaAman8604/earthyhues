@@ -43,7 +43,7 @@ function Packages() {
                                 <div className="card-body">
                                     <h4 dangerouslySetInnerHTML={{__html: index.package_title}}>{}</h4>
                                     <p className="card-text" dangerouslySetInnerHTML={{__html: index.package_intro.substring(0,150)}}>{}</p>
-                                    <a href="/">Explore More</a>
+                                    <a href="/PackageDetail">Explore More</a>
                                 </div>
                             </div>
                         </div>
