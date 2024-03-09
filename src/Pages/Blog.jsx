@@ -1,7 +1,11 @@
 import React, {useState,useEffect} from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
 // import InfiniteScroll from 'react-infinite-scroll-component';
+
+import InfiniteScroll from 'react-infinite-scroll-component';
+
 
 function Blog() {
     const [data, setData] = useState([]);
@@ -153,15 +157,21 @@ function Blog() {
                     </li> */}
                   </ul>
                   {/* /.blog__card-meta */}
+
                   <h3 id={`blog-${item.blog_id}`} className="blog__card-title">
                     <Link to='/TravelBlogDetail'>
                       {item.blog_head_name}
                     </Link>
+
+                  <h3 className="blog__card-title">
+                   <Link to='/TravelBlogDetail'>
+                   {item.blog_head_name}
+                   </Link>
+
                   </h3>
                   <p className="blog__card-text" dangerouslySetInnerHTML={{__html: item.blog_intro}}>
                     {}
                   </p>
-                  
                 </div>
                 {/* /.blog-details__card-content */}
               </div>
