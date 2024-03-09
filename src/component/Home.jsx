@@ -1,13 +1,30 @@
-import React from 'react'
-import Footer from './Footer';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import Article from './Article';
 import Testmonial from './Testimonial';
 import About from './About';
 import Header from './Header';
 import Banner from './Banner';
 import Places from './Places'; 
+import Blog from './HomeBlog';
+import Upcomingtrip from './Upcomingtrip';
+import HomeDestination from './HomeDestination';
 
 const Home = () => {
+  const [data, setData] = useState([])
+
+    useEffect(()=>{
+        const fetchData = async()=>{
+            try{
+                const response = await axios.get('https://www.earthyhues.com/api-home-page-video')
+                setData(response.data)
+            }catch(error){
+                console.error('Error fetching Testimonial:',error)
+            }
+        };
+        fetchData() 
+    },[])
+
   return (
     <>
   {/* <div className="custom-cursor__cursor" />
@@ -19,209 +36,7 @@ const Home = () => {
     {/* main-slider-start */}
     <Banner/>
     {/* main-slider-end */}
-    <section className="tour-type-two home_page">
-      <div className="container">
-        <div className="row">
-          <div
-            className="col-lg-3 col-md-6 wow fadeInUp"
-            data-wow-delay="100ms"
-          >
-            <div className="tour-type-two__box">
-              <div className="tour-type-two__box__flipper">
-                <div className="tour-type-two__box__front">
-                  <div className="tour-type-two__box__front__image">
-                    <img
-                      src="assets/earthyhues-image/270X216-1.jpg"
-                      alt="trevlo"
-                    />
-                  </div>
-                  <div className="tour-type-two__box__front__content">
-                    <div className="tour-type-two__box__front__icon">
-                      <span className="icon-tent-Fill" />
-                    </div>
-                    <h5 className="tour-type-two__box__front__title">
-                      Tent Camping
-                    </h5>
-                    <p className="tour-type-two__box__front__text">
-                      There are many
-                      <br /> variations
-                    </p>
-                  </div>
-                </div>
-                <div className="tour-type-two__box__back">
-                  <div className="tour-type-two__box__back__image">
-                    <img
-                      src="assets/earthyhues-image/270X326-1.jpg"
-                      alt="trevlo"
-                    />
-                  </div>
-                  <div className="tour-type-two__box__back__content">
-                    <div className="tour-type-two__box__back__icon">
-                      <span className="icon-tent-Fill" />
-                    </div>
-                    <h5 className="tour-type-two__box__back__title">
-                      Tent Camping
-                    </h5>
-                    <p className="tour-type-two__box__back__text">
-                      There are many
-                      <br /> variations
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="col-lg-3 col-md-6 wow fadeInUp"
-            data-wow-delay="150ms"
-          >
-            <div className="tour-type-two__box">
-              <div className="tour-type-two__box__flipper">
-                <div className="tour-type-two__box__front">
-                  <div className="tour-type-two__box__front__image">
-                    <img
-                      src="assets/earthyhues-image/270X216-2.jpg"
-                      alt="trevlo"
-                    />
-                  </div>
-                  <div className="tour-type-two__box__front__content">
-                    <div className="tour-type-two__box__front__icon">
-                      <span className="icon-windsurfing-2" />
-                    </div>
-                    <h5 className="tour-type-two__box__front__title">
-                      Windsurfing
-                    </h5>
-                    <p className="tour-type-two__box__front__text">
-                      There are many
-                      <br /> variations
-                    </p>
-                  </div>
-                </div>
-                <div className="tour-type-two__box__back">
-                  <div className="tour-type-two__box__back__image">
-                    <img
-                      src="assets/earthyhues-image/270X326-2.jpg"
-                      alt="trevlo"
-                    />
-                  </div>
-                  <div className="tour-type-two__box__back__content">
-                    <div className="tour-type-two__box__back__icon">
-                      <span className="icon-windsurfing-2" />
-                    </div>
-                    <h5 className="tour-type-two__box__back__title">
-                      Windsurfing
-                    </h5>
-                    <p className="tour-type-two__box__back__text">
-                      There are many
-                      <br /> variations
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="col-lg-3 col-md-6 wow fadeInUp"
-            data-wow-delay="200ms"
-          >
-            <div className="tour-type-two__box">
-              <div className="tour-type-two__box__flipper">
-                <div className="tour-type-two__box__front">
-                  <div className="tour-type-two__box__front__image">
-                    <img
-                      src="assets/earthyhues-image/270X216-1.jpg"
-                      alt="trevlo"
-                    />
-                  </div>
-                  <div className="tour-type-two__box__front__content">
-                    <div className="tour-type-two__box__front__icon">
-                      <span className="icon-paragliding-5" />
-                    </div>
-                    <h5 className="tour-type-two__box__front__title">
-                      Paragliding Tours
-                    </h5>
-                    <p className="tour-type-two__box__front__text">
-                      There are many
-                      <br /> variations
-                    </p>
-                  </div>
-                </div>
-                <div className="tour-type-two__box__back">
-                  <div className="tour-type-two__box__back__image">
-                    <img
-                      src="assets/earthyhues-image/270X326-1.jpg"
-                      alt="trevlo"
-                    />
-                  </div>
-                  <div className="tour-type-two__box__back__content">
-                    <div className="tour-type-two__box__back__icon">
-                      <span className="icon-paragliding-5" />
-                    </div>
-                    <h5 className="tour-type-two__box__back__title">
-                      Paragliding Tours
-                    </h5>
-                    <p className="tour-type-two__box__back__text">
-                      There are many
-                      <br /> variations
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            className="col-lg-3 col-md-6 wow fadeInUp"
-            data-wow-delay="250ms"
-          >
-            <div className="tour-type-two__box">
-              <div className="tour-type-two__box__flipper">
-                <div className="tour-type-two__box__front">
-                  <div className="tour-type-two__box__front__image">
-                    <img
-                      src="assets/earthyhues-image/270X216-2.jpg"
-                      alt="trevlo"
-                    />
-                  </div>
-                  <div className="tour-type-two__box__front__content">
-                    <div className="tour-type-two__box__front__icon">
-                      <span className="icon-hiking-4" />
-                    </div>
-                    <h5 className="tour-type-two__box__front__title">
-                      Adventure
-                    </h5>
-                    <p className="tour-type-two__box__front__text">
-                      There are many
-                      <br /> variations
-                    </p>
-                  </div>
-                </div>
-                <div className="tour-type-two__box__back">
-                  <div className="tour-type-two__box__back__image">
-                    <img
-                      src="assets/earthyhues-image/270X326-2.jpg"
-                      alt="trevlo"
-                    />
-                  </div>
-                  <div className="tour-type-two__box__back__content">
-                    <div className="tour-type-two__box__back__icon">
-                      <span className="icon-hiking-4" />
-                    </div>
-                    <h5 className="tour-type-two__box__back__title">
-                      Adventure
-                    </h5>
-                    <p className="tour-type-two__box__back__text">
-                      There are many
-                      <br /> variations
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* /.container */}
-    </section>
+    <Upcomingtrip/>
     {/* /.tour-type */}
   
   {/* About Start */}
@@ -232,79 +47,34 @@ const Home = () => {
   {/* <Places/> */}
   {/* Tour Listing two End */}
 
-  {/* CTA Two Start */}
-  <section className="cta-three">
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-lg-6 wow slideInLeft" data-wow-delay="100ms">
-          <div className="cta-three__image">
-            <img src="assets/images/resources/cta-3-1.jpg" alt="trevlo" />
-          </div>
-        </div>
-        <div className="col-lg-6">
-          <div
-            className="cta-three__content"
-            style={{
-              backgroundImage: 'url("assets/images/shapes/cta-3-2.png")'
-            }}
-          >
-            <div
-              className="cta-three__content__inner wow fadeInUp"
-              data-wow-delay="200ms"
-            >
-              <div
-                className="cta-three__content__inner__bg"
-                style={{
-                  backgroundImage: "url(assets/images/shapes/cta-3-3.png)"
-                }}
-              />
-              <h2 className="cta-three__title">Singapore</h2>
-              <h5 className="cta-three__sub-title">
-                A Simply Perfect Place to Get Lost
-              </h5>
-              <a href="/" className="trevlo-btn trevlo-btn--base">
-                <span>Discover More</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {/* /.container */}
-  </section>
   {/* CTA Two End */}
   <section className="video-one">
-    <div
-      className="video-one__bg jarallax"
-      data-jarallax=""
-      data-speed="0.3"
-      data-imgposition="50% -100%"
-      style={{
-        backgroundImage: "url(assets/images/backgrounds/video-bg-1.jpg)"
-      }}
-    />
-    {/* /.video-one__bg */}
+    <div className="video-one__bg jarallax" data-jarallax="" data-speed="0.3"
+      data-imgposition="50% -100%" style={{backgroundImage: "url(assets/images/backgrounds/video-bg-1.jpg)"}} />
     <div className="container">
       <div className="video-one__content wow fadeInUp" data-wow-delay="100ms">
-        <a
-          href="https://www.youtube.com/watch?v=h9MbznbxlLc"
-          className="video-popup"
-        >
+        {/* <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" className="video-popup">
           <i className="fa fa-play" />
         </a>
         <h5 className="video-one__sub-title">Are you ready to travel?</h5>
-        {/* /.video-one__sub-title */}
         <h2 className="video-one__title">
           Tevily is a World LeadingOnline
           <br /> Tour Booking Platform
-        </h2>
-        {/* /.video-one__title */}
+        </h2> */}
+        <div className="row">
+          {data.map((item)=>(
+            <div className="col-lg-6" key={item.id}>
+            <iframe src={item.youtube_video_src} title="video section" style={{width:'100%',height:'60vh'}}></iframe>
+            {/* <video width={320} height={240} controls>
+              <source src={item.youtube_video_src} type="video/mp4" />
+              <source src={item.youtube_video_src} type="video/mp4" />
+            </video> */}
+          </div>
+          ))}
+        </div>
       </div>
-      {/* /.video-one__content */}
     </div>
-    {/* /.container */}
   </section>
-  {/* /.video-one */}
   <section className="tour-type">
     <div
       className="tour-type__bg"
@@ -362,6 +132,11 @@ const Home = () => {
   </section>
   {/* /.tour-type */}
   {/* /.client-carousel */}
+
+  {/* Destination Start */}
+  <HomeDestination/>
+  {/* Destination End */}
+  
   {/* Counter Three Start */}
   <section className="counter-three">
     <div
@@ -437,194 +212,17 @@ const Home = () => {
     {/* /.container */}
     <div className="counter-three__shape-bottom" />
   </section>
-  {/* Counter Three End */}
-  {/* Destination Start */}
+
   <section className="destination-three">
     <div className="container">
-      <div className="sec-title text-center">
-        <p className="sec-title__tagline">Are you ready to travel</p>
-        {/* /.sec-title__tagline */}
-        <h2 className="sec-title__title">
-          Explore the Beautiful Places
-          <br /> Around the World
-        </h2>
-        {/* /.sec-title__title */}
-      </div>
-      {/* /.sec-title */}
-      {/* /.sec-title */}
-      <div className="row">
-        <div className="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-          <div className="destination-one__card">
-            <div className="destination-one__card-img-box destination-one__card-img-box--round">
-              <img
-                src="assets/images/destination/destination-3-1.jpg"
-                alt="destination"
-                className="destination-one__card-img destination-one__card-img--round"
-              />
-              <div className="destination-one__card-overlay destination-one__card-overlay--round">
-                <div className="destination-one__card-content destination-one__card-content--round">
-                  <a
-                    href="/"
-                    className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
-                  >
-                    <span>7 TOURS</span>
-                  </a>
-                  <h4 className="destination-one__card-title">
-                    <a href="/">Thailand</a>
-                  </h4>
-                </div>
-                {/* /.destination-one__card-content destination-one__card-content--round */}
-              </div>
-              {/* /.destination-one__card-overlay destination-one__card-overlay--round */}
-            </div>
-            {/* /.destination-one__card-img-box */}
-          </div>
-          {/* /.destination-one__card */}
-        </div>
-        <div className="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay="150ms">
-          <div className="destination-one__card">
-            <div className="destination-one__card-img-box destination-one__card-img-box--round">
-              <img
-                src="assets/images/destination/destination-3-2.jpg"
-                alt="destination"
-                className="destination-one__card-img destination-one__card-img--round"
-              />
-              <div className="destination-one__card-overlay destination-one__card-overlay--round">
-                <div className="destination-one__card-content destination-one__card-content--round">
-                  <a
-                    href="/"
-                    className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
-                  >
-                    <span>8 TOURS</span>
-                  </a>
-                  <h4 className="destination-one__card-title">
-                    <a href="/">Dubai</a>
-                  </h4>
-                </div>
-                {/* /.destination-one__card-content destination-one__card-content--round */}
-              </div>
-              {/* /.destination-one__card-overlay destination-one__card-overlay--round */}
-            </div>
-            {/* /.destination-one__card-img-box */}
-          </div>
-          {/* /.destination-one__card */}
-        </div>
-        <div className="col-xl-5 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-          <div className="destination-one__card">
-            <div className="destination-one__card-img-box destination-one__card-img-box--round">
-              <img
-                src="assets/images/destination/destination-3-3.jpg"
-                alt="destination"
-                className="destination-one__card-img destination-one__card-img--round"
-              />
-              <div className="destination-one__card-overlay destination-one__card-overlay--round">
-                <div className="destination-one__card-content destination-one__card-content--round">
-                  <a
-                    href="/"
-                    className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
-                  >
-                    <span>10 TOURS</span>
-                  </a>
-                  <h4 className="destination-one__card-title">
-                    <a href="/">Australia</a>
-                  </h4>
-                </div>
-                {/* /.destination-one__card-content destination-one__card-content--round */}
-              </div>
-              {/* /.destination-one__card-overlay destination-one__card-overlay--round */}
-            </div>
-            {/* /.destination-one__card-img-box */}
-          </div>
-          {/* /.destination-one__card */}
-        </div>
-        <div className="col-xl-5 col-md-6 wow fadeInUp" data-wow-delay="250ms">
-          <div className="destination-one__card">
-            <div className="destination-one__card-img-box destination-one__card-img-box--round">
-              <img
-                src="assets/images/destination/destination-3-4.jpg"
-                alt="destination"
-                className="destination-one__card-img destination-one__card-img--round"
-              />
-              <div className="destination-one__card-overlay destination-one__card-overlay--round">
-                <div className="destination-one__card-content destination-one__card-content--round">
-                  <a
-                    href="/"
-                    className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
-                  >
-                    <span>7 TOURS</span>
-                  </a>
-                  <h4 className="destination-one__card-title">
-                    <a href="/">Italy</a>
-                  </h4>
-                </div>
-                {/* /.destination-one__card-content destination-one__card-content--round */}
-              </div>
-              {/* /.destination-one__card-overlay destination-one__card-overlay--round */}
-            </div>
-            {/* /.destination-one__card-img-box */}
-          </div>
-          {/* /.destination-one__card */}
-        </div>
-        <div className="col-xl-4 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-          <div className="destination-one__card">
-            <div className="destination-one__card-img-box destination-one__card-img-box--round">
-              <img
-                src="assets/images/destination/destination-3-5.jpg"
-                alt="destination"
-                className="destination-one__card-img destination-one__card-img--round"
-              />
-              <div className="destination-one__card-overlay destination-one__card-overlay--round">
-                <div className="destination-one__card-content destination-one__card-content--round">
-                  <a
-                    href="/"
-                    className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
-                  >
-                    <span>10 TOURS</span>
-                  </a>
-                  <h4 className="destination-one__card-title">
-                    <a href="/">Spain</a>
-                  </h4>
-                </div>
-                {/* /.destination-one__card-content destination-one__card-content--round */}
-              </div>
-              {/* /.destination-one__card-overlay destination-one__card-overlay--round */}
-            </div>
-            {/* /.destination-one__card-img-box */}
-          </div>
-          {/* /.destination-one__card */}
-        </div>
-        <div className="col-xl-3 col-md-6 wow fadeInUp" data-wow-delay="350ms">
-          <div className="destination-one__card">
-            <div className="destination-one__card-img-box destination-one__card-img-box--round">
-              <img
-                src="assets/images/destination/destination-3-6.jpg"
-                alt="destination"
-                className="destination-one__card-img destination-one__card-img--round"
-              />
-              <div className="destination-one__card-overlay destination-one__card-overlay--round">
-                <div className="destination-one__card-content destination-one__card-content--round">
-                  <a
-                    href="/"
-                    className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
-                  >
-                    <span>6 TOURS</span>
-                  </a>
-                  <h4 className="destination-one__card-title">
-                    <a href="/">Pakistan</a>
-                  </h4>
-                </div>
-                {/* /.destination-one__card-content destination-one__card-content--round */}
-              </div>
-              {/* /.destination-one__card-overlay destination-one__card-overlay--round */}
-            </div>
-            {/* /.destination-one__card-img-box */}
-          </div>
-          {/* /.destination-one__card */}
-        </div>
-      </div>
+      <Places/>
     </div>
   </section>
-  {/* Destination End */}
+
+
+  {/* Counter Three End */}
+  
+
   <section className="why-choose-three">
     <div
       className="why-choose-three__bg"
@@ -725,8 +323,9 @@ const Home = () => {
   
   <Testmonial/>
 
+  <Blog/>
   {/* CTA Two Start */}
-  <section className="cta-two">
+  {/* <section className="cta-two">
     <div className="container">
       <div className="row">
         <div className="col-lg-9 wow fadeInUp" data-wow-delay="100ms">
@@ -745,8 +344,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-    {/* /.container */}
-  </section>
+  </section> */}
   {/* CTA Two End */}
 
   {/* <Footer/> */}

@@ -1,9 +1,12 @@
 import React, {useState,useEffect} from 'react'
 import axios from 'axios';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import { Link } from 'react-router-dom';
+// import InfiniteScroll from 'react-infinite-scroll-component';
 
 function Blog() {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+    const [selectedBlogId, setSelectedBlogId] = useState(null);
+
     useEffect(()=>{
         const fetchData = async ()=>{
           try{
@@ -16,6 +19,10 @@ function Blog() {
         fetchData()
     },[])
 
+    const handleBlogClick = (blogId) => {
+      setSelectedBlogId(blogId);
+    };
+
     return (
         <div>
             <section className="page-header">
@@ -26,7 +33,7 @@ function Blog() {
                         <li>
                             <a href="/">Home</a>
                         </li>
-                        <li>Packages</li>
+                        <li>Travel Blog</li>
                         </ul>
                     </div>
                 </div>
@@ -58,63 +65,23 @@ function Blog() {
               >
                 <h4 className="sidebar-blog__title">Latest posts</h4>
                 <ul className="sidebar-blog__posts ">
-                  <li className="sidebar-blog__posts-item">
+                  {data.map((item)=>(
+                  <li className="sidebar-blog__posts-item" key={item.blog_id}>
                     <div className="sidebar-blog__posts-image">
                       <img
-                        src="assets/images/blog/latest-post-1-1.jpg"
+                        src={item.blog_image}
                         alt="latest-post"
-                      />
+                        style={{width:'60px',height:'60px'}} />
                     </div>
                     <div className="sidebar-blog__posts-content">
-                      <p className="sidebar-blog__posts-date">
-                        <i className="far fa-clock" />
-                        26 Mar, 2023
-                      </p>
-                      <h4 className="sidebar-blog__posts-title">
-                        <a href="blog-details-right.html">
-                          The Complete Web Developer Guideline
+                      <h4 className="sidebar-blog__posts-title" onClick={() => handleBlogClick(item.blog_id)}>
+                        <a href={`#blog-${item.blog_id}`}>
+                          {item.blog_head_name}
                         </a>
                       </h4>
                     </div>
                   </li>
-                  <li className="sidebar-blog__posts-item">
-                    <div className="sidebar-blog__posts-image">
-                      <img
-                        src="assets/images/blog/latest-post-1-2.jpg"
-                        alt="latest-post"
-                      />
-                    </div>
-                    <div className="sidebar-blog__posts-content">
-                      <p className="sidebar-blog__posts-date">
-                        <i className="far fa-clock" />
-                        26 Mar, 2023
-                      </p>
-                      <h4 className="sidebar-blog__posts-title">
-                        <a href="blog-details-right.html">
-                          The Complete Web Developer Guideline
-                        </a>
-                      </h4>
-                    </div>
-                  </li>
-                  <li className="sidebar-blog__posts-item">
-                    <div className="sidebar-blog__posts-image">
-                      <img
-                        src="assets/images/blog/latest-post-1-3.jpg"
-                        alt="latest-post"
-                      />
-                    </div>
-                    <div className="sidebar-blog__posts-content">
-                      <p className="sidebar-blog__posts-date">
-                        <i className="far fa-clock" />
-                        26 Mar, 2023
-                      </p>
-                      <h4 className="sidebar-blog__posts-title">
-                        <a href="blog-details-right.html">
-                          The Complete Web Developer Guideline
-                        </a>
-                      </h4>
-                    </div>
-                  </li>
+                  ))}
                 </ul>
               </div>
               <div
@@ -157,7 +124,7 @@ function Blog() {
         
         <div className="col-xl-8 col-lg-7">
             {data.map((item)=>(
-            <div className="sidebar-blog__single--search mb-5" key={item.blog_id}>
+            <div id={`blog-${item.blog_id}`} className="sidebar-blog__single--search mb-5" key={item.blog_id}>
             <div className="blog-details">
                 <div className="blog-card-three">
                     <div className="blog__card">
@@ -186,8 +153,10 @@ function Blog() {
                     </li> */}
                   </ul>
                   {/* /.blog__card-meta */}
-                  <h3 className="blog__card-title">
-                   {item.blog_head_name}
+                  <h3 id={`blog-${item.blog_id}`} className="blog__card-title">
+                    <Link to='/TravelBlogDetail'>
+                      {item.blog_head_name}
+                    </Link>
                   </h3>
                   <p className="blog__card-text" dangerouslySetInnerHTML={{__html: item.blog_intro}}>
                     {}

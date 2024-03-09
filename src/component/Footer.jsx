@@ -77,19 +77,19 @@ function Footer() {
                 {/* /.footer-widget__title */}
                 <ul className="footer-widget__links">
                 <li>
-                    <a href="/">About Us</a>
-                </li>
-                <li>
-                    <a href="/">Community Blog</a>
-                </li>
-                <li>
                     <a href="/">Destinations</a>
                 </li>
                 <li>
-                    <a href="/">Meet the Guide</a>
+                    <a href="/">Passion</a>
                 </li>
                 <li>
-                    <a href="/WBlog">Contact Now</a>
+                    <a href="/">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="/">Testimonial</a>
+                </li>
+                <li>
+                    <a href="/WBlog">Custom Tour</a>
                 </li>
                 </ul>
                 {/* /.footer-widget__links */}
@@ -107,16 +107,19 @@ function Footer() {
                 {/* /.footer-widget__title */}
                 <ul className="footer-widget__links">
                 <li>
-                    <a href="/">Account</a>
+                    <a href="/">Our Story</a>
                 </li>
                 <li>
-                    <a href="/">Tour Listings</a>
+                    <a href="/">Why Earthy Hues?</a>
                 </li>
                 <li>
-                    <a href="/">Privacy Policy</a>
+                    <a href="/">Conscious Travel</a>
                 </li>
                 <li>
-                    <a href="/">Help</a>
+                    <a href="/WBlog">Refund Policy</a>
+                </li>
+                <li>
+                    <a href="/">Terms of Service</a>
                 </li>
                 </ul>
                 {/* /.footer-widget__links */}

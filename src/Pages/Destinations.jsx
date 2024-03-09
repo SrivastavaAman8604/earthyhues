@@ -23,16 +23,32 @@ const Destinations = () => {
   return (
     <>
       <section className="page-header">
-        <div className="page-header__bg" />
+        {/* <div className="page-header__bg" /> */}
         <div className="container">
-          <div className="page-header__breadcrumb-box">
+        {/* <h2 className="offer-one__heading sec-title__heading " >
+        
+          </h2> */}
+          <h3
+            className="offer-one__heading sec-title__heading text-left"
+            style={{
+              marginTop: "-62px",
+              paddingLeft: '200',
+              fontSize: "25px!important",
+              left: 23
+            }}>
+            <span className="font-bernadette-rough display-4" style={{ fontSize: 51 }}>
+            {data.destination?.[0]?.destination_name}
+            </span>
+          </h3>
+
+          {/* <div className="page-header__breadcrumb-box">
             <ul className="trevlo-breadcrumb">
               <li>
                 <a href="/">Home</a>
               </li>
               <li>{data.destination?.[0]?.destination_name}</li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="destination-details section-space">
