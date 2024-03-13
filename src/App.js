@@ -29,7 +29,7 @@ function App() {
         <Route path='/passion/' element={<Passion/>}/>
         <Route path='/passion/:passion_id' element={<Passion/>}/>
         <Route path='/packages' element={<Packages/>}/>
-        {/* <Route path='/packages/:package_id' element={<PackageDetail/>}/> */}
+        <Route path='/packages/:package_id' element={<PackageDetail/>}/> 
         <Route path='/packages' element={<PackageDetail/>}/>
         <Route path='/testimonial' element={<Testimonial/>}/>
         <Route path='/conscious-travel' element={<Conscious/>}/>
