@@ -95,7 +95,7 @@ const Passion = () => {
                             </a>
                             </h3>
                             <p className="tour-listing__card-text text-small">
-                            {packageItem.package_intro.substring(0,200)}.
+                                {packageItem.package_intro.substring(0,200)}.
                             </p>
                             <Link to='/package' className=' trevlo-btn trevlo-btn--base text-white'>
                                 <span>Explore More</span>

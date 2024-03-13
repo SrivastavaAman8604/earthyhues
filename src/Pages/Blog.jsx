@@ -158,10 +158,7 @@ function Blog() {
                   </ul>
                   {/* /.blog__card-meta */}
 
-                  <h3 id={`blog-${item.blog_id}`} className="blog__card-title">
-                    <Link to='/TravelBlogDetail'>
-                      {item.blog_head_name}
-                    </Link>
+                  
 
                   <h3 className="blog__card-title">
                    <Link to='/TravelBlogDetail'>
