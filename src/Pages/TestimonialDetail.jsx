@@ -80,7 +80,7 @@ const TestimonialDetail = () => {
       </div>
       {/* <div
         className="col-xl-7 col-lg-6 wow animated fadeInRight animated"
-        data-wow-delay="0.1s"
+        data-wow-delay="0.1s"https://github.com/SrivastavaAman8604/earthyhues
         data-wow-duration="1500ms"
         style={{
           visibility: "visible",
@@ -228,3 +228,4 @@ const TestimonialDetail = () => {
 }
 
 export default TestimonialDetail
+
