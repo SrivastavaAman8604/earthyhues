@@ -42,7 +42,8 @@ function Packages() {
                                     <div className="card-body">
                                         <h4 dangerouslySetInnerHTML={{ __html: packageData.package_title }}></h4>
                                         <p className="card-text" dangerouslySetInnerHTML={{ __html: packageData.package_intro.substring(0, 150) }}></p>
-                                        <Link to={'/packagesDetail'}>Explore More</Link>
+                                        {/* <Link to={'/packagesDetail'}>Explore More</Link> */}
+                                        <Link to={`/packages/${packageData.package_id}`}>Explore More</Link>
                                     </div>
                                 </div>
                             </div>
