@@ -4325,7 +4325,6 @@ path {
   height: auto;
 } */
 .main-header__logo img {
-  
     max-width: 137%;
     margin-top: 35px;
     height: auto;
@@ -7465,6 +7464,12 @@ body.megamenu-popup-active .mobile-nav__content {
   .offer-one__inner-img-box {
     max-width: 300px;
   }
+  .main-header__logo img {
+    max-width: 100%;
+    margin-top: 10px;
+    height: auto;
+    width: 100%;
+}
 }
 @media (max-width: 360px) {
   .offer-one__inner-img-box {
