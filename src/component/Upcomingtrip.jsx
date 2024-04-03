@@ -21,9 +21,9 @@ const Upcomingtrip = () => {
     <div className="my-5">
         <div className="container">
             <div className="sec-title text-center">
-                {/* <p className="sec-title__tagline">Upcoming Trips</p> */}
+                <p className="sec-title__tagline">Upcoming Trips</p>
                 <h2 className="sec-title__title">
-                Upcoming Trips
+                Upcoming Adventure Awaits
                 </h2>
             </div>
         </div>

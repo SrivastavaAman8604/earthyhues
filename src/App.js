@@ -16,6 +16,10 @@ import Affiliation from './component/Affiliation';
 import PackageDetail from './Pages/PackageDetail';
 import TestimonialDetail from './Pages/TestimonialDetail';
 import TravelBlogDetail from './Pages/TravelBlogDetail';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import TermsOfServices from './Pages/TermsOfServices';
+import RefundPolicy from './Pages/RefundPolicy';
+import YEarthyhues from './Pages/YEarthyhues';
 
 function App() {
 
@@ -29,14 +33,19 @@ function App() {
         <Route path='/passion/' element={<Passion/>}/>
         <Route path='/passion/:passion_id' element={<Passion/>}/>
         <Route path='/packages' element={<Packages/>}/>
-        <Route path='/packages/:package_id' element={<PackageDetail/>}/> 
+        <Route path='/packages/:package_id' element={<PackageDetail/>}/>
         <Route path='/packages' element={<PackageDetail/>}/>
         <Route path='/testimonial' element={<Testimonial/>}/>
+        <Route path='/testimonial/:testimonials_id' element={<TestimonialDetail/>}/>
+        {/* <Route path='/testimonialDetail' element={<TestimonialDetail/>}/> */}
         <Route path='/conscious-travel' element={<Conscious/>}/>
         <Route path='/blog' element={<Blog/>}/>
+        <Route path='/blog/:travel_blog_id' element={<TravelBlogDetail/>}/>
         <Route path='/write-a-blog' element={<WBlog/>}/>
-        <Route path='/testimonialDetail' element={<TestimonialDetail/>}/>
-        <Route path='/travelblogdetail' element={<TravelBlogDetail/>}/>
+        <Route path='/PrivacyPolicy' element={<PrivacyPolicy/>}/>
+        <Route path='/TermsOfServices' element={<TermsOfServices/>}/>
+        <Route path='/RefundPolicy' element={<RefundPolicy/>}/>
+        <Route path='/Why-EarthyHues' element={<YEarthyhues/>}/>
       </Routes>
       <Affiliation/>
       <Footer/>

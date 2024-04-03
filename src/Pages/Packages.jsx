@@ -8,7 +8,7 @@ function Packages() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://www.earthyhues.com/api-packages');
+                const response = await axios.get('https://www.earthyhues.com/apipackages');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching Package:', error);
@@ -43,7 +43,7 @@ function Packages() {
                                         <h4 dangerouslySetInnerHTML={{ __html: packageData.package_title }}></h4>
                                         <p className="card-text" dangerouslySetInnerHTML={{ __html: packageData.package_intro.substring(0, 150) }}></p>
                                         {/* <Link to={'/packagesDetail'}>Explore More</Link> */}
-                                        <Link to={`/packages/${packageData.package_id}`}>Explore More</Link>
+                                        <Link to={`/packages/${packageData.package_url}`}>Explore More</Link>
                                     </div>
                                 </div>
                             </div>

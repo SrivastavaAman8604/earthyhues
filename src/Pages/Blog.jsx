@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 // import InfiniteScroll from 'react-infinite-scroll-component';
 
-import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 function Blog() {
@@ -161,7 +160,7 @@ function Blog() {
                   
 
                   <h3 className="blog__card-title">
-                   <Link to='/TravelBlogDetail'>
+                   <Link to={`/blog/${item.blog_url}`}>
                    {item.blog_head_name}
                    </Link>
 
@@ -182,9 +181,9 @@ function Blog() {
               <h3 className="post-category__title">Tags:</h3>
               <div className="post-category__btn-group">
               {item.blog_tags.map((tag) => (
-                    <a key={tag.blog_nid} href="blog-list-right.html" className="post-category__btn trevlo-btn trevlo-btn--base">
-                        <span>{tag.blog_tag}</span>
-                    </a>
+                  <a key={tag.blog_nid} href="blog-list-right.html" className="post-category__btn trevlo-btn trevlo-btn--base">
+                    <span>{tag.blog_tag}</span>
+                  </a>
                 ))}
               </div>
               {/* /.post-category__btn-group */}

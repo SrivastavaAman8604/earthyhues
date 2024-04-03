@@ -14,7 +14,7 @@ const HomeBlog = () => {
     <div className='my-5'>
         <div className="container">
             <div className="sec-title text-center">
-                <p className="sec-title__tagline">World’s best Nature Travel Experience</p>
+                <p className="sec-title__tagline">World’s best Travel Experience</p>
                 
                 <h2 className="sec-title__title">
                 Check Our Travel Blogs

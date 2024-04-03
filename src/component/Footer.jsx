@@ -1,6 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function Footer() {
+
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' 
+        });
+      };
+
   return (
       <footer className="main-footer @@extraClassName">
         <div
@@ -14,52 +23,52 @@ function Footer() {
         <div className="row">
             {/* /.col-md-6 */}
             <div
-            className="col-lg-7 col-xl-4 wow animated fadeInUp"
+            className="col-lg-6 col-xl-4 wow animated fadeInUp"
             data-wow-delay="0.7s"
             data-wow-duration="1500ms"
             >
             <div className="footer-widget footer-widget--newsletter">
                 <h2 className="footer-widget__title">Company</h2>
-                <div className="main-footer__logo-box">
+                <div className="main-footer__logo-box text-center">
                 <img
                     src="../assets/earthyhues-image/logo.png"
                     alt="logo-dark"
                     className="main-footer__logo"
                 />
                 </div>
-                <ul className="main-footer__social">
-                <li className="main-footer__social-item">
-                    <a
-                    href="https://facebook.com/"
-                    className="main-footer__social-link"
-                    >
-                    <i className="fab fa-facebook-f" />
-                    </a>
-                </li>
-                <li className="main-footer__social-item">
-                    <a
-                    href="https://linkedin.com/"
-                    className="main-footer__social-link"
-                    >
-                    <i className="fab fa-linkedin-in" />
-                    </a>
-                </li>
-                <li className="main-footer__social-item">
-                    <a
-                    href="https://twitter.com/"
-                    className="main-footer__social-link"
-                    >
-                    <i className="fab fa-twitter" />
-                    </a>
-                </li>
-                <li className="main-footer__social-item">
-                    <a
-                    href="https://youtube.com/"
-                    className="main-footer__social-link"
-                    >
-                    <i className="fab fa-youtube" />
-                    </a>
-                </li>
+                <ul className="main-footer__social text-center ms-5">
+                    <li className="main-footer__social-item ms-2">
+                        <a
+                        href="https://www.facebook.com/EarthyHuesTours"
+                        className="main-footer__social-link"
+                        >
+                        <i className="fab fa-facebook-f" />
+                        </a>
+                    </li>
+                    <li className="main-footer__social-item ">
+                        <a
+                        href="https://www.linkedin.com/company/earthyhues/"
+                        className="main-footer__social-link"
+                        >
+                        <i className="fab fa-linkedin-in" />
+                        </a>
+                    </li>
+                    <li className="main-footer__social-item ">
+                        <a
+                        href="https://www.instagram.com/earthyhuestours/"
+                        className="main-footer__social-link"
+                        >
+                        <i className="fab fa-instagram" />
+                        </a>
+                    </li>
+                    <li className="main-footer__social-item ">
+                        <a
+                        href="https://www.youtube.com/channel/UCFVeeklGY_eomA5bMkrfOJw"
+                        className="main-footer__social-link"
+                        >
+                        <i className="fab fa-youtube" />
+                        </a>
+                    </li>
                 </ul>
                 <div className="mc-form__response" />
                 {/* /.mc-form__response */}
@@ -68,7 +77,7 @@ function Footer() {
             </div>
             {/* /.col-md-6 */}
             <div
-            className="col-lg-3 col-md-4 col-sm-6 col-xl-2 wow animated fadeInUp"
+            className="col-lg-4 col-md-4 col-sm-6 col-xl-2 wow animated fadeInUp"
             data-wow-delay="0.1s"
             data-wow-duration="1500ms"
             >
@@ -76,20 +85,20 @@ function Footer() {
                 <h2 className="footer-widget__title">About Us</h2>
                 {/* /.footer-widget__title */}
                 <ul className="footer-widget__links">
-                <li>
-                    <a href="/">Destinations</a>
+                <li onClick={scrollToTop}>
+                    <Link href="/">Destinations</Link>
                 </li>
-                <li>
-                    <a href="/">Passion</a>
+                <li onClick={scrollToTop}>
+                    <Link to="/">Passion</Link>
                 </li>
-                <li>
-                    <a href="/">Privacy Policy</a>
+                <li onClick={scrollToTop}>
+                    <Link to="./PrivacyPolicy">Privacy Policy</Link>
                 </li>
-                <li>
-                    <a href="/">Testimonial</a>
+                <li onClick={scrollToTop}>
+                <Link to="/testimonial">Testimonials</Link>
                 </li>
-                <li>
-                    <a href="/WBlog">Custom Tour</a>
+                <li onClick={scrollToTop}>
+                    <Link to="/WBlog">Custom Tour</Link>
                 </li>
                 </ul>
                 {/* /.footer-widget__links */}
@@ -106,20 +115,20 @@ function Footer() {
                 <h2 className="footer-widget__title">Explore</h2>
                 {/* /.footer-widget__title */}
                 <ul className="footer-widget__links">
-                <li>
-                    <a href="/">Our Story</a>
+                <li onClick={scrollToTop}>
+                    <Link to="/">Our Story</Link>
                 </li>
-                <li>
-                    <a href="/">Why Earthy Hues?</a>
+                <li onClick={scrollToTop}>
+                    <Link to="./Why-EarthyHues">Why Earthy Hues?</Link>
                 </li>
-                <li>
-                    <a href="/">Conscious Travel</a>
+                <li onClick={scrollToTop}>
+                <Link to="/conscious-travel">Conscious Travel</Link>
                 </li>
-                <li>
-                    <a href="/WBlog">Refund Policy</a>
+                <li onClick={scrollToTop}>
+                    <Link to="./RefundPolicy">Refund Policy</Link>
                 </li>
-                <li>
-                    <a href="/">Terms of Service</a>
+                <li onClick={scrollToTop}>
+                    <Link to="./TermsOfServices">Terms of Service</Link>
                 </li>
                 </ul>
                 {/* /.footer-widget__links */}
@@ -137,23 +146,21 @@ function Footer() {
                 {/* /.footer-widget__title */}
                 <p className="footer-widget__address">
                 2210, 2nd Floor,
-                <br />
                 2nd Main Road, 6th Block,
+                Jayanagar, 
                 <br />
-                Jayanagar, Bangalore,
-                <br />
-                Karnataka - 560070
+                Bangalore, Karnataka - 560070
                 </p>
                 <ul className="footer-widget__info">
                 <li>
                     {" "}
                     <span className="icon-phone-1" />{" "}
-                    <a href="tel:+91 89042 78007">+91 89042 78007</a>
+                    <Link to="tel:+91 89042 78007">+91 89042 78007</Link>
                 </li>
                 <li>
                     {" "}
                     <span className="icon-envelope" />{" "}
-                    <a href="mailto:info@earthyhues.com">info@earthyhues.com</a>
+                    <Link to="mailto:info@earthyhues.com">info@earthyhues.com</Link>
                 </li>
                 </ul>
                 {/* /.footer-widget__info */}

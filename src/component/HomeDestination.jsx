@@ -23,12 +23,12 @@ const HomeDestination = () => {
                     />
                     <div className="destination-one__card-overlay destination-one__card-overlay--round">
                         <div className="destination-one__card-content destination-one__card-content--round">
-                        <a
+                        {/* <a
                             href="/"
                             className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
                         >
                             <span>7 TOURS</span>
-                        </a>
+                        </a> */}
                         <h4 className="destination-one__card-title">
                             <a href="/">Thailand</a>
                         </h4>
@@ -47,12 +47,12 @@ const HomeDestination = () => {
                     />
                     <div className="destination-one__card-overlay destination-one__card-overlay--round">
                         <div className="destination-one__card-content destination-one__card-content--round">
-                        <a
+                        {/* <a
                             href="/"
                             className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
                         >
                             <span>8 TOURS</span>
-                        </a>
+                        </a> */}
                         <h4 className="destination-one__card-title">
                             <a href="/">Dubai</a>
                         </h4>
@@ -71,12 +71,12 @@ const HomeDestination = () => {
                     />
                     <div className="destination-one__card-overlay destination-one__card-overlay--round">
                         <div className="destination-one__card-content destination-one__card-content--round">
-                        <a
+                        {/* <a
                             href="/"
                             className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
                         >
                             <span>10 TOURS</span>
-                        </a>
+                        </a> */}
                         <h4 className="destination-one__card-title">
                             <a href="/">Australia</a>
                         </h4>
@@ -95,12 +95,12 @@ const HomeDestination = () => {
                     />
                     <div className="destination-one__card-overlay destination-one__card-overlay--round">
                         <div className="destination-one__card-content destination-one__card-content--round">
-                        <a
+                        {/* <a
                             href="/"
                             className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
                         >
                             <span>7 TOURS</span>
-                        </a>
+                        </a> */}
                         <h4 className="destination-one__card-title">
                             <a href="/">Italy</a>
                         </h4>
@@ -119,12 +119,12 @@ const HomeDestination = () => {
                     />
                     <div className="destination-one__card-overlay destination-one__card-overlay--round">
                         <div className="destination-one__card-content destination-one__card-content--round">
-                        <a
+                        {/* <a
                             href="/"
                             className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
                         >
                             <span>10 TOURS</span>
-                        </a>
+                        </a> */}
                         <h4 className="destination-one__card-title">
                             <a href="/">Spain</a>
                         </h4>
@@ -143,12 +143,12 @@ const HomeDestination = () => {
                     />
                     <div className="destination-one__card-overlay destination-one__card-overlay--round">
                         <div className="destination-one__card-content destination-one__card-content--round">
-                        <a
+                        {/* <a
                             href="/"
                             className="destination-one__card-btn destination-one__card-btn--round trevlo-btn trevlo-btn--base trevlo-btn--base-three"
                         >
                             <span>6 TOURS</span>
-                        </a>
+                        </a> */}
                         <h4 className="destination-one__card-title">
                             <a href="/">Pakistan</a>
                         </h4>

@@ -83,7 +83,7 @@ const Home = () => {
     {/* /.tour-type__bg */}
     <div className="container">
       <div className="sec-title text-center">
-        <p className="sec-title__tagline">Testimonial</p>
+        <p className="sec-title__tagline">Tour Categories</p>
         <h2 className="sec-title__title">Choose Tour Types</h2>
       </div>
       <div className="row">
@@ -151,17 +151,15 @@ const Home = () => {
             <p className="sec-title__tagline">Are you ready to travel</p>
             {/* /.sec-title__tagline */}
             <h2 className="sec-title__title">
-              Choose Our Tour Types
-              <br /> &amp; Enjoy Now
+            Explore Our Tours &amp; 
+              <br />Start Your Adventure Today
             </h2>
             {/* /.sec-title__title */}
           </div>
           {/* /.sec-title */}
           {/* /.sec-title */}
           <p className="counter-three__text">
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteradution in some form by injected
-            humour, some form
+          Embark on an adventure with EarthyHues, offering handpicked tours blending excitement, relaxation, and cultural immersion for unforgettable memories.
           </p>
         </div>
         <div className="col-xl-2 col-md-4 wow fadeInUp" data-wow-delay="100ms">
@@ -171,8 +169,8 @@ const Home = () => {
             </div>
             {/* /.counter-box__icon */}
             <h3 className="counter-three__box__number count-box">
-              <span className="count-text" data-stop="30.3" data-speed={1500} />
-              30.3k
+              <span className="count-text" data-stop="1K+" data-speed={1500} />
+              1 K+
             </h3>
             <p className="counter-three__box__title">Happy Traveller</p>
           </div>
@@ -185,8 +183,8 @@ const Home = () => {
             </div>
             {/* /.counter-box__icon */}
             <h3 className="counter-three__box__number count-box">
-              <span className="count-text" data-stop="40.5" data-speed={1500} />
-              40.5k
+              <span className="count-text" data-stop="40+" data-speed={1500} />
+              40+
             </h3>
             <p className="counter-three__box__title">Tent Sites</p>
           </div>
@@ -240,16 +238,14 @@ const Home = () => {
               {/* /.sec-title__tagline */}
               <h2 className="sec-title__title">
                 Why You Should Choose
-                <br /> Our Trevelo?
+                <br /> Earthy Hues?
               </h2>
               {/* /.sec-title__title */}
             </div>
             {/* /.sec-title */}
             {/* /.sec-title */}
             <p className="why-choose-three__content__text">
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteradution in some form by
-              injected humour, some form
+            Our carefully curated experiences provide a genuine connection to the places you visit, allowing you to immerse yourself in the local culture and traditions. With our knowledgeable guides and meticulous planning, you can explore with confidence, knowing that every detail has been taken care of for a seamless and unforgettable journey.
             </p>
             <div className="why-choose-three__box-wrapper">
               <div
@@ -263,7 +259,7 @@ const Home = () => {
                   Best Price Guarantee
                 </h3>
                 <p className="why-choose-three__box__text">
-                  There are many variations of passages of Lorem Ipsum{" "}
+                Get the best prices guaranteed for your dream vacations with Earthy Hues.{" "}
                 </p>
               </div>
               {/* /.why-choose-three__box */}
@@ -278,7 +274,7 @@ const Home = () => {
                   Easy &amp; Quick Booking
                 </h3>
                 <p className="why-choose-three__box__text">
-                  There are many variations of passages of Lorem Ipsum{" "}
+                Effortless booking for your travel needs.{" "}
                 </p>
               </div>
               {/* /.why-choose-three__box */}
@@ -293,7 +289,7 @@ const Home = () => {
                   Experienced Guide
                 </h3>
                 <p className="why-choose-three__box__text">
-                  There are many variations of passages of Lorem Ipsum{" "}
+                Embark on your journey with seasoned experts guiding the way.{" "}
                 </p>
               </div>
               {/* /.why-choose-three__box */}

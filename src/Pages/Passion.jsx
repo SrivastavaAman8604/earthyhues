@@ -1,24 +1,32 @@
 import React, { useState , useEffect } from 'react'
 import { useParams , Link} from 'react-router-dom';
 import axios from 'axios';
+import Loading from './Loading'
 
 const Passion = () => {
     const { passion_id } = useParams();
+    const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`https://www.earthyhues.com/passions/${passion_id}`);
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching Passion:', error);
+      } finally {
+        setLoading(false); // Set loading to false regardless of success or failure
       }
     };
     
     fetchData();
   }, [passion_id]);
+
+  if (loading) {
+    return <Loading />; 
+  }
 
   return (
     <>
@@ -109,141 +117,6 @@ const Passion = () => {
             </div>
             <div className="col-xl-4">
             <aside className="tour-listing-details__sidebar">
-                {/*<div
-                    className="tour-listing-details__sidebar-book-tours tour-listing-details__sidebar-single wow animated fadeInUp"
-                    data-wow-delay="0.1s"
-                    data-wow-duration="1500ms"
-                    >
-                <h3 className="tour-listing-details__sidebar-title">
-                    Book Tours
-                </h3>
-                 <form
-                    action="https://bracketweb.com/trevlo-html/assets/inc/sendemail.php"
-                    className="tour-listing-details__sidebar-form contact-form-validated">
-                    <div className="tour-listing-details__sidebar-form-input">
-                    <input type="text" placeholder="Where to" name="where_to" />
-                    </div>
-                    <div className="tour-listing-details__sidebar-form-input">
-                    <input type="text" placeholder="When" name="when" />
-                    </div>
-                    <div className="tour-listing-details__sidebar-form-input">
-                    <select
-                        className="selectpicker"
-                        name="wildlife"
-                        aria-label="Wildlife"
-                    >
-                        <option selected="">Wildlife</option>
-                        <option value={1}>Sightseeing</option>
-                        <option value={2}>Adventure</option>
-                    </select>
-                    </div>
-                    <div className="tour-listing-details__sidebar-form-input">
-                    <input
-                        type="text"
-                        name="date"
-                        placeholder="Select date"
-                        id="datepicker"
-                        className="tour-listing-details__sidebar-form-date trevlo-datepicker"
-                    />
-                    <i className="tour-listing-details__sidebar-form-date-arrow fas fa-angle-down" />
-                    </div>
-                    <div className="tour-listing-details__sidebar-form-input">
-                    <select
-                        className="selectpicker"
-                        name="adventure"
-                        aria-label="Adventure"
-                    >
-                        <option selected="">Adventure</option>
-                        <option value={1}>Sightseeing</option>
-                        <option value={2}>Wildlife</option>
-                    </select>
-                    </div>
-                    <button
-                    type="submit"
-                    className="tour-listing-details__sidebar-btn trevlo-btn trevlo-btn--base"
-                    >
-                    <span>Book Now</span>
-                    </button>
-                </form> */}
-                {/* <div className="result" />
-                </div>
-                <div
-                className="tour-listing-details__sidebar-post-box tour-listing-details__sidebar-single wow animated fadeInUp"
-                data-wow-delay="0.1s"
-                data-wow-duration="1500ms"
-                >
-                <h3 className="tour-listing-details__sidebar-title tour-listing-details__sidebar-post-title">
-                    Last Minute
-                </h3>
-                <ul className="tour-listing-sidebar-post">
-                    <li className="tour-listing-sidebar-post__item">
-                    <div className="tour-listing-sidebar-post__image">
-                        <img
-                        src="assets/images/tours/tour-listing-details-post-1.jpg"
-                        alt="last-post"
-                        />
-                    </div>
-                    <div className="tour-listing-sidebar-post__content">
-                        <p className="tour-listing-sidebar-post__price">$380</p>
-                        <h5 className="tour-listing-sidebar-post__link">
-                        <a href="tour-listing-details-right.html">
-                            The Complete Web
-                        </a>
-                        </h5>
-                        <div className="tour-listing-sidebar-post__location">
-                        <span className="icon-location-1" />
-                        <p className="tour-listing-sidebar-post__location-text text-small">
-                            Main Street, Brooklyn, NY
-                        </p>
-                        </div>
-                    </div>
-                    </li>
-                    <li className="tour-listing-sidebar-post__item">
-                    <div className="tour-listing-sidebar-post__image">
-                        <img
-                        src="assets/images/tours/tour-listing-details-post-2.jpg"
-                        alt="last-post"
-                        />
-                    </div>
-                    <div className="tour-listing-sidebar-post__content">
-                        <p className="tour-listing-sidebar-post__price">$380</p>
-                        <h5 className="tour-listing-sidebar-post__link">
-                        <a href="tour-listing-details-right.html">
-                            The Complete Web
-                        </a>
-                        </h5>
-                        <div className="tour-listing-sidebar-post__location">
-                        <span className="icon-location-1" />
-                        <p className="tour-listing-sidebar-post__location-text text-small">
-                            Main Street, Brooklyn, NY
-                        </p>
-                        </div>
-                    </div>
-                    </li>
-                    <li className="tour-listing-sidebar-post__item">
-                    <div className="tour-listing-sidebar-post__image">
-                        <img
-                        src="assets/images/tours/tour-listing-details-post-3.jpg"
-                        alt="last-post"
-                        />
-                    </div>
-                    <div className="tour-listing-sidebar-post__content">
-                        <p className="tour-listing-sidebar-post__price">$380</p>
-                        <h5 className="tour-listing-sidebar-post__link">
-                        <a href="tour-listing-details-right.html">
-                            The Complete Web
-                        </a>
-                        </h5>
-                        <div className="tour-listing-sidebar-post__location">
-                        <span className="icon-location-1" />
-                        <p className="tour-listing-sidebar-post__location-text text-small">
-                            Main Street, Brooklyn, NY
-                        </p>
-                        </div>
-                    </div> 
-                    </li>
-                </ul>
-                </div>*/}
 
                 <div className="row">
                     {data.package_gallery?.map((image) => (
