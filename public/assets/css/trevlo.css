@@ -4525,8 +4525,9 @@ path {
 .main-header--home-three {
   position: absolute;
   left: 0;
-  top: 8px;
+  /* top: 8px; */
   /*top: 0;*/
+  top: -23px;
   background: transparent;
   width: 100%;
 }
@@ -12878,9 +12879,12 @@ body.megamenu-popup-active .mobile-nav__content {
   border-bottom: 1px solid RGBA(255, 255, 255, 0.1);
 }
 .main-footer__bottom {
-  margin-top: 125px;
+  /* margin-top: 125px;
   padding-top: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 25px; */
+  margin-top: 60px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: var(--trevlo-black4, #241C26);
 }
 @media (max-width: 575px) {
@@ -15103,4 +15107,26 @@ body.boxed-wrapper .main-header__booking-btn {
   49.98%, 62.64% { transform: translate3d(0, -75%, 0); }
   66.64%, 79.3% { transform: translate3d(0, -50%, 0); }
   83.3%, 95.96% { transform: translate3d(0, -25%, 0); }
+}
+
+.testcontent{
+  position: relative;
+    height: 232px;
+    width: 100%;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.testimg{
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-height{
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
