@@ -125,7 +125,7 @@ function Testmonial() {
       {feedback.map((item) => (
         <div className="col-10 text-center m-4">
           <div className="item" key={item.feedback_id} >
-              <div className="testimonials-card text-center">
+              <div className="testimonials-card text-center " style={{height: '90%'}}>
                 
                 <div className="testimonials-card__image">
                   <img
@@ -144,8 +144,10 @@ function Testmonial() {
                   <span className="icon-star" />
                   <span className="icon-star" />
                 </div>  */}
-                <div className="testimonials-card__quote pt-5 mt-2 text-center" dangerouslySetInnerHTML={{__html:  item.feedback_detail.substring(0,210)}}>{}</div>
-                <a href="/" className="trevlo-btn trevlo-btn--base mt-4">
+                <div className='pt-2 ' style={{textAlign:'justify', textJustify:'inter-word'}}>
+                  <div className="testimonials-card__quote pt-5 mt-2 text-center" dangerouslySetInnerHTML={{__html:  item.feedback_detail.substring(0,200)}}></div>
+                </div>
+                <a href={`/testimonial/${item.feedback_page_url}`} className="trevlo-btn trevlo-btn--base mt-4">
                   <span>Read More</span>
                 </a>              
               </div>
