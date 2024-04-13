@@ -69,12 +69,12 @@ function Footer() {
         });
       };
 
-      const scrollToMid = () => {
-        window.scrollTo({
-            top: 100,
-            behavior: 'smooth'
-        });
-    };
+    //   const scrollToMid = () => {
+    //     window.scrollTo({
+    //         top: 100,
+    //         behavior: 'smooth'
+    //     });
+    // };
 
   return (
     <>
@@ -152,10 +152,10 @@ function Footer() {
                 <h2 className="footer-widget__title">About Us</h2>
                 {/* /.footer-widget__title */}
                 <ul className="footer-widget__links">
-                <li onClick={scrollToMid}>
+                <li >
                         <Link onClick={() => openModal('destination')}>Destinations</Link>
                     </li>
-                    <li onClick={scrollToMid}>
+                    <li >
                         <Link onClick={() => openModal('passion')}>Passion</Link>
                     </li>
                
