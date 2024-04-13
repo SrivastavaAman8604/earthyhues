@@ -14,9 +14,10 @@ const Affiliation = () => {
         </div>
         <section className='d-flex mb-5'>
             <div className="container text-center">
-                <img src="../assets/affiliatedimg/IIMB-Logo-NSRCEL.png" alt="IIMB-Logo-NSRCEL" className='w-25 mx-4'/>
-                <img src="../assets/affiliatedimg/Guardian-of-Nature-2.png" alt="affiliatedimg/Guardian-of-Nature" className='w-25 mx-4'/>
-                <img src="../assets/affiliatedimg/world-travel-tourism-council-logo.png" alt="world-travel-tourism-council-logo" className='w-25 mx-4'/>
+                    <img src="../assets/affiliatedimg/IIMB-Logo-NSRCEL.png" alt="IIMB-Logo-NSRCEL" className='w-25 mx-2'/>
+                    <img src="../assets/affiliatedimg/Guardian-of-Nature-2.png" alt="affiliatedimg/Guardian-of-Nature" className='w-25 mx-2'/>
+                    <img src="../assets/affiliatedimg/world-travel-tourism-council-logo.png" alt="world-travel-tourism-council-logo" className='w-25 mx-2'/>
+                    <img src="../assets/affiliatedimg/GreenSignature (1).png" alt="greenSignature-logo" className='mx-3' style={{width:'13%'}}/>
             </div>
         </section>
     </div>

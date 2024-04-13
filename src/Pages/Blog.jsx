@@ -2,13 +2,16 @@ import React, {useState,useEffect} from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-// import InfiniteScroll from 'react-infinite-scroll-component';
-
-
-
 function Blog() {
     const [data, setData] = useState([]);
     const [selectedBlogId, setSelectedBlogId] = useState(null);
+
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth' 
+      });
+    };
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -28,7 +31,7 @@ function Blog() {
 
     return (
         <div>
-            <section className="page-header">
+            {/* <section className="page-header">
             <div className="page-header__bg" />
                 <div className="container">
                     <div className="page-header__breadcrumb-box">
@@ -40,8 +43,24 @@ function Blog() {
                         </ul>
                     </div>
                 </div>
-            </section>
-            <section className="tour-listing-details tour-listing-details-right mx-5">
+            </section> */}
+            <section className="page-header">
+        <div className="container">
+          <h3
+            className="offer-one__heading sec-title__heading text-left"
+            style={{
+              marginTop: "-62px",
+              paddingLeft: '200',
+              fontSize: "25px!important",
+              left: 23
+            }}>
+            <span className="font-bernadette-rough display-4" style={{ fontSize: 51 }}>
+            Travel Blog
+            </span>
+          </h3>
+        </div>
+      </section>
+            <section className="tour-listing-details tour-listing-details-right section-space">
            
   <div className="blog-details-page section-space-top">
     <div className="container">
@@ -128,6 +147,7 @@ function Blog() {
         <div className="col-xl-8 col-lg-7">
             {data.map((item)=>(
             <div id={`blog-${item.blog_id}`} className="sidebar-blog__single--search mb-5" key={item.blog_id}>
+              <Link to={`/blog/${item.blog_url}`} onClick={scrollToTop}>
             <div className="blog-details">
                 <div className="blog-card-three">
                     <div className="blog__card">
@@ -201,6 +221,7 @@ function Blog() {
             </div>
             {/* /.post-tag */}
           </div>
+          </Link>
         </div>
         ))}
         {/* /.col-xl-8 col-lg-7 */}
@@ -213,6 +234,19 @@ function Blog() {
  
 
             </section>
+            <button
+       className="post-category__btn trevlo-btn trevlo-btn--base"
+            style={{
+                position: 'fixed',
+                bottom: '5%',
+                left: '5%',
+                zIndex: 99999,
+                padding: '10px 24px'
+            }}
+            onClick={scrollToTop}
+        >
+          <span>Scroll to top</span>
+        </button>
         </div>
     )
 }

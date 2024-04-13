@@ -18,7 +18,7 @@ function Testmonial() {
       .then((response) => {
         if (Array.isArray(response.data) && response.data.length >= 1) {
           setFeedback(response.data);
-          console.log(response.data);
+          // console.log(response.data);
         } else {
           console.error("Invalid response format or insufficient data");
         }

@@ -14,7 +14,7 @@ const TravelBlogDetail = () => {
             try {
                 const response = await axios.get(`https://www.earthyhues.com/api-travel-blog/${travel_blog_id}`);
                 setData(response.data[0]);
-                console.log(response.data[0]);
+                // console.log(response.data[0]);
 
             } catch (error) {
                 console.log('Error while loading:', error.response.data);
@@ -38,7 +38,7 @@ const TravelBlogDetail = () => {
                 </div>
             </div>
         </section>
-            <section className="tour-listing-details tour-listing-details-right mt-5">
+            <section className="tour-listing-details tour-listing-details-right section-space">
                 <div className="container">
                     <div className="tour-listing-details__row row">
                     {/* <div className="col-xl-4">
@@ -61,7 +61,7 @@ const TravelBlogDetail = () => {
                             {data.heading_name}
                             </h3>
                             <h5>{data.sub_heading_name}</h5>
-                            <div class="post-info" >
+                            <div class="post-info" style={{marginBottom: '2px'}}>
                                   <div class="post-category"  >
                                       <div class="post-category__btn-group" >
                                         {data && data.blog_tags && data.blog_tags.map((index) => (
@@ -100,38 +100,33 @@ const TravelBlogDetail = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                 {data && data.blog_child_para && data.blog_child_para.map((index) => (
-                                    <div className="tour-listing-details__reviews-comment-box" key={index.id}>
-                                        {/* <div className="tour-listing-details__reviews-image wow animated fadeInUp animated"
-                                            data-wow-delay="0.1s" data-wow-duration="1500ms"
-                                            style={{
-                                            visibility: "visible",
-                                            animationDuration: "1500ms",
-                                            animationDelay: "0.1s",
-                                            animationName: "fadeInUp"
-                                            }}>
-                                            <img src={index.blog_image} alt="Cherie S. Cullen" className='w-100'/>
-                                        </div> */}
-                                        <img src={index.blog_image} alt="Cherie S. Cullen" className='w-100 rounded mt-5'/>
-                                        <div
-                                            className="tour-listing-details__reviews-content wow animated fadeInUp animated"
-                                            data-wow-delay="0.3s"
-                                            data-wow-duration="1500ms"
-                                            style={{
+                                    <div className="tour-listing-details__reviews-comment-box" key={index.id} style={{ display: 'flex' }}>
+                                    <div className="col-md-4">
+                                        <img src={index.blog_image} alt="Cherie S. Cullen" className='w-100 rounded mt-5 float-left'/>
+                                    </div>
+                                    <div className="tour-listing-details__reviews-content wow animated fadeInUp animated"
+                                        data-wow-delay="0.3s"
+                                        data-wow-duration="1500ms"
+                                        style={{
+                                            flex: '1',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            justifyContent: 'center',
                                             visibility: "visible",
                                             animationDuration: "1500ms",
                                             animationDelay: "0.3s",
                                             animationName: "fadeInUp"
-                                            }}
-                                        >
-                                            <div className="tour-listing-details__reviews-inner-content">
+                                        }}>
+                                            
+                                        <div className="tour-listing-details__reviews-inner-content">
                                             <div className="tour-listing-details__reviews-info">
                                                 <h3 className="tour-listing-details__reviews-name">{index.blog_heading}</h3>    
                                             </div>
-                                            
-                                            </div>
-                                            <p className="tour-listing-details__reviews-text" dangerouslySetInnerHTML={{__html: index.blog_intro}}></p>
                                         </div>
+                                        <p className="tour-listing-details__reviews-text" dangerouslySetInnerHTML={{__html: index.blog_intro}}></p>
                                     </div>
+                                </div>
+                                
                                 ))}
                                 </div>
                             </div>

@@ -1,7 +1,66 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+// import mobilemenu from './Mobilemenu';
+import Modal from 'react-modal';
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'justify', // Text justification
+    maxWidth: '80%', // Limiting maximum width to 80% of viewport
+    maxHeight: '80vh', // Limiting maximum height to 80% of viewport height
+    overflowY: 'auto', // Enable vertical scrolling if content exceeds modal height
+    zIndex: 999999,
+  },
+};
 
 function Footer() {
+
+    const [destinations, setDestinations] = useState([]);
+    const [passions, setPassions] = useState([]);
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [selectedLocation, setSelectedLocation] = useState(null);
+
+    const openModal = (location) => {
+        setSelectedLocation(location);
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setSelectedLocation(null);
+        setIsOpen(false);
+    };
+
+
+    useEffect(() => {
+        axios.get('https://www.earthyhues.com/home-menu')
+        .then((response) => {
+            if (response.data && Array.isArray(response.data)) {
+            // setData(response.data);
+            if (Array.isArray(response.data[0].destination)) {
+                setDestinations(response.data[0].destination);
+            } else {
+                console.error("Invalid destination data format");
+            }
+            if (Array.isArray(response.data[0].passion)) {
+                setPassions(response.data[0].passion);
+            } else {
+                console.error("Invalid passion data format");
+            }
+            } else {
+            console.error("Invalid response format or insufficient data");
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }, []);
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -10,7 +69,15 @@ function Footer() {
         });
       };
 
+      const scrollToMid = () => {
+        window.scrollTo({
+            top: 100,
+            behavior: 'smooth'
+        });
+    };
+
   return (
+    <>
       <footer className="main-footer @@extraClassName">
         <div
         className="main-footer__bg"
@@ -85,12 +152,13 @@ function Footer() {
                 <h2 className="footer-widget__title">About Us</h2>
                 {/* /.footer-widget__title */}
                 <ul className="footer-widget__links">
-                <li onClick={scrollToTop}>
-                    <Link href="/">Destinations</Link>
-                </li>
-                <li onClick={scrollToTop}>
-                    <Link to="/">Passion</Link>
-                </li>
+                <li onClick={scrollToMid}>
+                        <Link onClick={() => openModal('destination')}>Destinations</Link>
+                    </li>
+                    <li onClick={scrollToMid}>
+                        <Link onClick={() => openModal('passion')}>Passion</Link>
+                    </li>
+               
                 <li onClick={scrollToTop}>
                     <Link to="./PrivacyPolicy">Privacy Policy</Link>
                 </li>
@@ -116,7 +184,7 @@ function Footer() {
                 {/* /.footer-widget__title */}
                 <ul className="footer-widget__links">
                 <li onClick={scrollToTop}>
-                    <Link to="/">Our Story</Link>
+                    <Link to="/Our-story">Our Story</Link>
                 </li>
                 <li onClick={scrollToTop}>
                     <Link to="./Why-EarthyHues">Why Earthy Hues?</Link>
@@ -192,6 +260,104 @@ function Footer() {
         </div>
         {/* /.main-footer__bottom */}
     </footer>
+
+    <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                contentLabel="Location Details"
+                style={customStyles}
+            >
+                {selectedLocation === 'destination' && (
+                    <>
+                        <h2 className='text-center'>Destination</h2>
+                        <ul className='foot'>
+                            {destinations.map(destination => (
+                                <li key={destination.destination_id} style={{ textDecoration: 'none', listStyleType: 'none' }} className='px-2'>
+                                    <Link to={`/destination/${destination.destination_url}`}>{destination.destination_name}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <button className='trevlo-btn trevlo-btn--base text-white' style={{ padding: '10px 20px' }} onClick={closeModal}>
+                                <span>Close</span>
+                            </button>
+                        </div>
+                    </>
+                )}
+                {selectedLocation === 'passion' && (
+                    <>
+                        <h2 className='text-center'>Passion</h2>
+                        <ul className='foot'>
+                            {passions.map(passion => (
+                                <li key={passion.passion_id} style={{ textDecoration: 'none', listStyleType: 'none' }} className='px-2'>
+                                    <Link to={`/passion/${passion.passion_url}`}>{passion.passion_name}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                        <div style={{ display: 'flex', justifyContent: 'center' }} >
+                            <button className='trevlo-btn trevlo-btn--base text-white' style={{ padding: '10px 20px' }} onClick={closeModal}>
+                                <span>Close</span>
+                            </button>
+                        </div>
+                    </>
+                )}
+            </Modal>
+            
+    <div className="mobile-nav__wrapper">
+  <div className="mobile-nav__overlay mobile-nav__toggler" />
+  {/* /.mobile-nav__overlay */}
+  <div className="mobile-nav__content">
+    <span className="mobile-nav__close mobile-nav__toggler">
+      <i className="fa fa-times" />
+    </span>
+    <div className="logo-box">
+        <img src="../assets/earthyhues-image/logo.png" alt="Trevlo HTML"  width={146}/>
+    </div>
+    {/* /.logo-box */}
+    <div className="mobile-nav__container" />
+    {/* /.mobile-nav__container */}
+    <ul className="mobile-nav__contact list-unstyled">
+      <li>
+        <i className="fa fa-envelope" />
+        <Link to="mailto:info@earthyhues.com">info@earthyhues.com</Link>
+      </li>
+      <li>
+        <i className="fa fa-phone-alt" />
+        <a href="tel: +91 8904278007"> +91 8904278007</a>
+      </li>
+    </ul>
+    {/* /.mobile-nav__contact */}
+    <div className="mobile-nav__social">
+        <a
+                        href="https://www.instagram.com/earthyhuestours/"
+                        className="main-footer__social-link"
+                        >
+                        <i className="fab fa-instagram" />
+                        </a>
+                        <a
+                        href="https://www.facebook.com/EarthyHuesTours"
+                        className="main-footer__social-link"
+                        >
+                        <i className="fab fa-facebook-f" />
+                        </a>
+                        <a
+                        href="https://www.linkedin.com/company/earthyhues/"
+                        className="main-footer__social-link"
+                        >
+                        <i className="fab fa-linkedin-in" />
+                        </a>
+                        <a
+                        href="https://www.youtube.com/channel/UCFVeeklGY_eomA5bMkrfOJw"
+                        className="main-footer__social-link"
+                        >
+                        <i className="fab fa-youtube" />
+                        </a>
+    </div>
+    {/* /.mobile-nav__social */}
+  </div>
+  {/* /.mobile-nav__content */}
+</div>
+    </>
   )
 }
 

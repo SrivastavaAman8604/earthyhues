@@ -6,6 +6,7 @@ function Header() {
   // const [data, setData] = useState({});
   const [destinations, setDestinations] = useState([]);
   const [passions, setPassions] = useState([]);
+  
 
   useEffect(() => {
     axios.get('https://www.earthyhues.com/home-menu')
@@ -62,16 +63,10 @@ function Header() {
               <ul className="main-menu__list">
                 <li className="dropdown">
                   <a href="/">Destinations</a>
-                  <ul className="sub-menu">
+                  <ul className="sub-menu des">
                     {destinations.map((destination) => (
                       <li key={destination.destination_id}>
                         <Link to={`/destinations/${destination.destination_url}`}>{destination.destination_name}</Link>
-
-                        {/* <a href='/destination'>{destination.destination_name}</a> */}
-
-{/*                         <a href={`https://www.earthyhues.com/destination/${destination.destination_url}`}>{destination.destination_name}</a> */}
-                        {/* <a href='/destination'>{destination.destination_name}</a> */}
-
                       </li>
                     ))}
                   </ul>
@@ -84,11 +79,6 @@ function Header() {
 
                         
                         <Link to={`/passion/${item.passion_url}`}>{item.passion_name}</Link>
-
-{/*                         <a href={`https://www.earthyhues.com/passion/${item.passion_url}`}>{item.passion_name}</a> */}
-                        {/* <a href='/passion'>{item.passion_name}</a> */}
-                        
-                        {/* <Link to={`/passion/${item.passion_url}`}>{item.passion_name}</Link> */}
 
                       </li>
                     ))}
@@ -111,14 +101,18 @@ function Header() {
             {/* /.main-header__nav */}
           </div>
           {/* /.main-header__left */}
+
           <div className="main-header__right">
-            <div className="mobile-nav__btn mobile-nav__toggler">
-              <span />
-              <span />
-              <span />
+            <div className=''>
+              <div className="mobile-nav__btn mobile-nav__toggler">
+                <span />
+                <span />
+                <span />
+              </div>
             </div>
+          </div>
             {/* /.mobile-nav__toggler */}
-            <div className="main-header__right-right">
+            {/* <div className="main-header__right-right">
               <div className="main-header__divider" />
               <ul className="main-header__search-user">
                 <li className="main-header__search-user-item">
@@ -127,10 +121,9 @@ function Header() {
                   </a>
                 </li>
               </ul>
-              {/* /.main-header__search-user */}
-            </div>
+            </div> */}
+           
             {/* /.main-header__right-right */}
-          </div>
           {/* /.main-header__right */}
         </div>
         {/* /.main-header__inner */}

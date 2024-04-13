@@ -1,6 +1,15 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 const About = () => {
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' 
+    });
+  };
+  
   return (
     <>
   <section className="about-three">
@@ -32,9 +41,12 @@ const About = () => {
                 Awaken wanderlust, create timeless memories.
               </li>
             </ul>
-            <a href="/packages" className="trevlo-btn trevlo-btn--base">
-              <span>Discover More</span>
-            </a>
+            <Link to="/Our-story" className="trevlo-btn trevlo-btn--base" onClick={scrollToTop}>
+              <span>Our Story</span>
+            </Link>
+            <Link to="/why-Earthyhues" className="trevlo-btn trevlo-btn--base ms-3" onClick={scrollToTop}>
+              <span>Why EarthyHues?</span>
+            </Link>
           </div>
           {/* /.about-four__content */}
         </div>

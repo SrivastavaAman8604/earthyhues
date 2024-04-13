@@ -1,16 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
+import Modal from 'react-modal';
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'justify', // Text justification
+    maxWidth: '80%', // Limiting maximum width to 80% of viewport
+    maxHeight: '80vh', // Limiting maximum height to 80% of viewport height
+    overflowY: 'auto', // Enable vertical scrolling if content exceeds modal height
+  },
+};
 
 const Destinations = () => {
   const { destination_id } = useParams();
   const [data, setData] = useState({});
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+
+  const openModal = (location) => {
+    setSelectedLocation(location);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedLocation(null);
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`https://www.earthyhues.com/destinations/${destination_id}`);
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
       } catch (error) {
         console.error('Error fetching destination:', error.response.data);
@@ -21,7 +49,7 @@ const Destinations = () => {
   }, [destination_id]);
 
   return (
-    <>
+    <div>
       <section className="page-header">
         {/* <div className="page-header__bg" /> */}
         <div className="container">
@@ -57,9 +85,9 @@ const Destinations = () => {
             <div className="col-xl-8 col-lg-7">
               <div className="destination-details__card">
                 <div className="destination-details__card-content">
-                <h3 className="destination-details__card-title destination-details__title main-heading-title">
+                {/* <h3 className="destination-details__card-title destination-details__title main-heading-title">
                   {data.destination?.[0]?.destination_name}
-                </h3>
+                </h3> */}
                 <p  className="destination-details__card-text wow animated fadeInUp" data-wow-delay="0.1s"  data-wow-duration="1500ms" dangerouslySetInnerHTML={{__html: data.destination?.[0]?.destination_content}}>
                     {}
                 </p>
@@ -77,7 +105,7 @@ const Destinations = () => {
                     <a href="/" className="tour-listing__card-wishlist">
                       <span className="icon-heart" />
                     </a>
-                    <div className="tour-listing__card-content">
+                    <div className="tour-listing__card-content p-4">
                         <div className="tour-listing__card-camera-group">
                         {/* <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" className="tour-listing__card-camera-btn video-popup"
                         >
@@ -90,51 +118,69 @@ const Destinations = () => {
                             {location.location_name}
                           </a>
                         </h3>
-                        <p className="tour-listing__card-text text-small" dangerouslySetInnerHTML={{__html: location.location_details.substring(0,250)}}>
+                        <p className="tour-listing__card-text text-small" style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: location.location_details.substring(0,250)}}>
                         
                         </p>
-                        <Link to={'/'} className='trevlo-btn trevlo-btn--base text-white'>
-                          <span>Read more</span>
-                        </Link>
-                    </div>
+                        <Link className='trevlo-btn trevlo-btn--base text-white' style={{padding: '10px 20px'}}>
+                          <span onClick={() => openModal(location)}>Read more</span>
+                        </Link>  
+                      </div>
                     </div>
                 </div>
                     ))}
                 </div>
-            </div>
-            </div>
+                <Modal
+                          isOpen={modalIsOpen}
+                          onRequestClose={closeModal}
+                          contentLabel="Location Details"
+                          style={customStyles}
+                        >
+                          {selectedLocation && (
+                            <>
+                              <h2 className='text-center'>{selectedLocation.location_name}</h2>
+                              <p dangerouslySetInnerHTML={{ __html: selectedLocation.location_details}}></p>
+                              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                <button className='trevlo-btn trevlo-btn--base text-white' style={{padding: '10px 20px'}} onClick={closeModal}>
+                                  <span>Close</span>
+                                </button>
+                              </div>
+                            </>
+                          )}
+                        </Modal>
+                      </div>
+                    </div>
             {/* /.col-xl-8 col-lg-7 */}
-            <div className="col-xl-4 col-lg-5">
-              <aside className="destination-sidebar">
-                <div className="destination-sidebar__tour destination-sidebar__single">
-                  <h3 className="destination-sidebar__tour-top-title">Packages</h3>
-                  <div className="destination-sidebar__tour-box">
-                    {data.packages?.map((packageItem) => (
-                      <div key={packageItem.package_id} className="destination-sidebar__tour-item">
-                        <div className="destination-sidebar__tour-img mt-2">
-                          <img src={packageItem.package_img} alt="destination-tour" style={{aspectRatio: '3/2'}}/>
-                        </div>
-                        <div className="destination-sidebar__tour-content">
-                          <h4 className="destination-sidebar__tour-title">
-                            <a href={`/${packageItem.package_url}`}>
-                              {packageItem.package_title}
-                            </a>
-                          </h4>
-                          <p className="destination-sidebar__tour-location-text text-small">
-                            {packageItem.package_intro.substring(0,70)}...
-                          <Link to={'/'}>Read more</Link>
-                          </p>
+                  <div className="col-xl-4 col-lg-5">
+                    <aside className="destination-sidebar">
+                      <div className="destination-sidebar__tour destination-sidebar__single">
+                        <h3 className="destination-sidebar__tour-top-title">Packages</h3>
+                        <div className="destination-sidebar__tour-box">
+                          {data.packages?.map((packageItem) => (
+                            <div key={packageItem.package_id} className="destination-sidebar__tour-item">
+                              <div className="destination-sidebar__tour-img mt-2">
+                                <img src={packageItem.package_img} alt="destination-tour" style={{aspectRatio: '3/2'}}/>
+                              </div>
+                              <div className="destination-sidebar__tour-content">
+                                <h4 className="destination-sidebar__tour-title">
+                                  <a href={`/${packageItem.package_url}`}>
+                                    {packageItem.package_title}
+                                  </a>
+                                </h4>
+                                <p className="destination-sidebar__tour-location-text text-small">
+                                  {packageItem.package_intro.substring(0,70)}...
+                                <Link to={`/packages/${packageItem.package_url}`}>Read more</Link>
+                                </p>
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
               </aside>
             </div>
         </div>
         </div>
     </section>
-    </>
+    </div>
   );
 };
 

@@ -20,6 +20,7 @@ import PrivacyPolicy from './Pages/PrivacyPolicy';
 import TermsOfServices from './Pages/TermsOfServices';
 import RefundPolicy from './Pages/RefundPolicy';
 import YEarthyhues from './Pages/YEarthyhues';
+import OurStory from './Pages/OurStory';
 
 function App() {
 
@@ -28,13 +29,13 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/destinations/' element={<Destinations/>}/>
+        {/* <Route path='/destinations/' element={<Destinations/>}/> */}
         <Route path="/destinations/:destination_id" element={<Destinations/>} />
-        <Route path='/passion/' element={<Passion/>}/>
+        {/* <Route path='/passion/' element={<Passion/>}/> */}
         <Route path='/passion/:passion_id' element={<Passion/>}/>
         <Route path='/packages' element={<Packages/>}/>
         <Route path='/packages/:package_id' element={<PackageDetail/>}/>
-        <Route path='/packages' element={<PackageDetail/>}/>
+        {/* <Route path='/packages' element={<PackageDetail/>}/> */}
         <Route path='/testimonial' element={<Testimonial/>}/>
         <Route path='/testimonial/:testimonials_id' element={<TestimonialDetail/>}/>
         {/* <Route path='/testimonialDetail' element={<TestimonialDetail/>}/> */}
@@ -46,6 +47,7 @@ function App() {
         <Route path='/TermsOfServices' element={<TermsOfServices/>}/>
         <Route path='/RefundPolicy' element={<RefundPolicy/>}/>
         <Route path='/Why-EarthyHues' element={<YEarthyhues/>}/>
+        <Route path='/Our-story' element={<OurStory/>}/>
       </Routes>
       <Affiliation/>
       <Footer/>

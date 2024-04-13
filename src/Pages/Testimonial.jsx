@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 function Testimonial() {
     const [data, setData] = useState([])
@@ -19,7 +20,7 @@ function Testimonial() {
 
     return (
         <div>
-            <section className="page-header">
+            {/* <section className="page-header">
                 <div className="page-header__bg" />
                 <div className="container">
                 <div className="page-header__breadcrumb-box">
@@ -31,14 +32,31 @@ function Testimonial() {
                     </ul>
                 </div>
                 </div>
-            </section>
-            <section className='my-5 '>
+            </section> */}
+            <section className="page-header">
+        <div className="container">
+          <h3
+            className="offer-one__heading sec-title__heading text-left"
+            style={{
+              marginTop: "-62px",
+              paddingLeft: '200',
+              fontSize: "25px!important",
+              left: 23
+            }}>
+            <span className="font-bernadette-rough display-4" style={{ fontSize: 51 }}>
+            Testimonials
+            </span>
+          </h3>
+        </div>
+      </section>
+            <section className='section-space'>
                 <div className="container">
                     <div className="row">
                         {data.map((index) => (
                         <div className="col-lg-4" key={index.testimonials_id}>
+                            <Link to={`/testimonial/${index.testimonials_url}`}>
                            <div className="card h-100" style={{border: 'none'}}>
-                           <div className="card-height">
+                           <div className="card-height h-100">
                                 <div className='testcontent'>
                                     <img className="card-img-top testimg" src={index.testimonials_image} alt={index.testimonials_url}  />
                                 </div>
@@ -64,6 +82,7 @@ function Testimonial() {
                                </div>
                            </div>
                            </div>
+                           </Link>
                         </div>
                         ))}
                     </div>

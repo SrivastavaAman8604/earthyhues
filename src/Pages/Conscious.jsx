@@ -24,7 +24,7 @@ function Conscious() {
   
   return (
     <div>
-      <section className="page-header">
+      {/* <section className="page-header">
         <div className="page-header__bg" />
         <div className="container">
           <div className="page-header__breadcrumb-box">
@@ -36,6 +36,22 @@ function Conscious() {
             </ul>
           </div>
         </div>
+      </section> */}
+      <section className="page-header">
+        <div className="container">
+          <h3
+            className="offer-one__heading sec-title__heading text-left"
+            style={{
+              marginTop: "-62px",
+              paddingLeft: '200',
+              fontSize: "25px!important",
+              left: 23
+            }}>
+            <span className="font-bernadette-rough display-4" style={{ fontSize: 51 }}>
+            Conscious Travel
+            </span>
+          </h3>
+        </div>
       </section>
       <section className="tour-listing-details tour-listing-details-right section-space">
         <div className="container">
@@ -43,9 +59,9 @@ function Conscious() {
             <div className="col-xl-8 col-lg-7">
               <div className="destination-details__card">
                 <div className="destination-details__card-content">
-                  <h3 className="destination-details__card-title destination-details__title main-heading-title">
+                  {/* <h3 className="destination-details__card-title destination-details__title main-heading-title">
                     Conscious Travel
-                  </h3>
+                  </h3> */}
                   <p className="destination-details__card-text wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1500ms" dangerouslySetInnerHTML={{ __html: data.general_content_top }}></p>
                   <br />
                   {data.testimonials_conscious.map((item) => (

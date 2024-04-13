@@ -24,10 +24,10 @@ const TestimonialDetail = () => {
    
   return (
     <div>
-        <section className="page-header">
+        {/* <section className="page-header">
             <div className="page-header__bg" />
             <div className="container">
-                <div className="page-header__breadcrumb-box">
+                <div className="page-header__breadcrumb-box"> */}
                     {/* <h2
                         className="page-header__title wow animated fadeInLeft animated"
                         data-wow-delay="0s"
@@ -41,7 +41,7 @@ const TestimonialDetail = () => {
                         >
                         Testimonial Details
                     </h2> */}
-                    <div className="page-header__breadcrumb-box">
+                    {/* <div className="page-header__breadcrumb-box">
                         <ul className="trevlo-breadcrumb">
                             <li>
                                 <a href="/">Home</a>
@@ -51,111 +51,24 @@ const TestimonialDetail = () => {
                     </div>
                 </div>
             </div>
-        </section>
-        {/* <section
-  className="offer-one"
-  style={{ 
-    backgroundImage: 'url("assets/earthyhues-image/destinations/Bhutan-Banner-Image-1.jpg")' , 
-    backgroundColor: '#5db0c4'
-    }}
->
-  <div className="container">
-    <div className="row">
-      <div className="col-xl-5 col-lg-6 my-5 py-5">
-        <div className="offer-one__content sec-title my-5 py-4">
-           <p className="offer-one__top-title">Special offer for you</p> */}
-          {/*<h2 className="offer-one__heading sec-title__heading " >
-            {data.testimonials_name}
-          </h2>
-            <div className="page-header__breadcrumb-box">
-                        <ul className="trevlo-breadcrumb">
-                            <li>
-                                <a href="/">Home</a>
-                            </li>
-                            <li>{data.testimonials_customer_name}</li>
-                        </ul>
-            </div>
-          <div
-            className="offer-one__btn-box wow animated fadeInUp animated"
-            data-wow-delay="0.1s"
-            data-wow-duration="1500ms"
+        </section> */}
+        <section className="page-header">
+        <div className="container">
+          <h3
+            className="offer-one__heading sec-title__heading text-left"
             style={{
-              visibility: "visible",
-              animationDuration: "1500ms",
-              animationDelay: "0.1s",
-              animationName: "fadeInUp"
-            }}
-          > */}
-            {/* <a
-              href="tour-listing-side-filter-right.html"
-              className="offer-one__btn trevlo-btn trevlo-btn--primary"
-            >
-              <span>Start Booking</span>
-            </a> 
-          </div>
+              marginTop: "-62px",
+              paddingLeft: '200',
+              fontSize: "25px!important",
+              left: 23
+            }}>
+            <span className="font-bernadette-rough display-4" style={{ fontSize: 51 }}>
+            {data.testimonials_customer_name}
+            </span>
+          </h3>
         </div>
-      </div>*/}
-      {/* <div
-        className="col-xl-7 col-lg-6 wow animated fadeInRight animated"
-        data-wow-delay="0.1s"https://github.com/SrivastavaAman8604/earthyhues
-        data-wow-duration="1500ms"
-        style={{
-          visibility: "visible",
-          animationDuration: "1500ms",
-          animationDelay: "0.1s",
-          animationName: "fadeInRight"
-        }}
-      > */}
-        {/* <div className="offer-one__img-box">
-          <div className="offer-one__inner-img-box">
-            <img
-              src="assets/images/offer/offer-1-1.jpg"
-              alt="offer"
-              className="offer-one__img-one"
-            />
-            <img
-              src="assets/images/offer/offer-1-2.jpg"
-              alt="offer"
-              className="offer-one__img-two"
-            />
-            <img
-              src="assets/images/offer/offer-1-3.png"
-              alt="offer"
-              className="offer-one__img-three"
-            />
-          </div>
-        </div> */}
-      {/* </div> */}
-    {/* </div>
-  </div>
-  <div
-    className="offer-one__shape-one trevlo-splax simple-parallax-initialized"
-    data-para-options='{ "orientation": "left", "scale": 1.5, "overflow": true }'
-    style={{
-      backgroundImage: 'url("assets/images/shapes/offer-shape-1.png")',
-      willChange: "transform",
-      transform: "translate3d(45px, 0px, 0px)"
-    }}
-  /> */}
-  {/* /.bg */}
-  {/* <div
-    className="offer-one__shape-two trevlo-splax simple-parallax-initialized"
-    data-para-options='{ "orientation": "right", "scale": 1.5, "overflow": true }'
-    style={{
-      backgroundImage: 'url("assets/images/shapes/offer-shape-2.png")',
-      willChange: "transform",
-      transform: "translate3d(-45px, 0px, 0px)"
-    }}
-  /> */}
-  {/* <div
-    className="offer-one__bottom-bg1"
-    style={{ backgroundImage: 'url("assets/images/offer/offer-1-4.png")' }}
-  /> */}
-  {/* /.bg */}
-{/* </section> */}
-
-
-            <section className="tour-listing-details tour-listing-details-right mt-5">
+      </section>
+            <section className="tour-listing-details tour-listing-details-right section-space">
                 <div className="container">
                     <div className="tour-listing-details__row row">
                     <div className="col-xl-4">
@@ -185,7 +98,7 @@ const TestimonialDetail = () => {
                             </h3>
                             <h6>{data.testimonials_name}</h6>
                         </div>
-                              <div class="post-info" >
+                              <div class="post-info" style={{marginBottom: '1px'}}>
                                   <div class="post-category"  >
                                       <div class="post-category__btn-group" >
                             {data && data.with_package && data.with_package.map((index) => (

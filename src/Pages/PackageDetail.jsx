@@ -14,7 +14,7 @@ const PackageDetail = () => {
             try {
                 const response = await axios.get(`https://www.earthyhues.com/apipackages/${package_id}`);
                 setData(response.data[0]);
-                console.log(response.data);
+                // console.log(response.data);
             } catch (error) {
                 console.log('Error while loading:', error.response.data);
             }
@@ -25,8 +25,8 @@ const PackageDetail = () => {
 
     return (
     <div>
-            <section className="page-header">
-                {/* <div className="page-header__bg" /> */}
+            {/* <section className="page-header">
+                 <div className="page-header__bg" /> 
                 <div className="container">
                     <div className="page-header__breadcrumb-box">
                         <ul className="trevlo-breadcrumb">
@@ -37,9 +37,38 @@ const PackageDetail = () => {
                         </ul>
                     </div>
                 </div>
-            </section>
+            </section> */}
+            <section className="page-header">
+            {/* <div className="page-header__bg" /> */}
+            <div className="container">
+            {/* <h2 className="offer-one__heading sec-title__heading " >
             
-            <section className="tour-listing-details tour-listing-details-right mt-5">
+              </h2> */}
+              <h3
+                className="offer-one__heading sec-title__heading text-left"
+                style={{
+                  marginTop: "-62px",
+                  paddingLeft: '200',
+                  fontSize: "25px!important",
+                  left: 23
+                }}>
+                <span className="font-bernadette-rough display-4" style={{ fontSize: 51 }}>
+                {data.package_title}
+                </span>
+              </h3>
+    
+              {/* <div className="page-header__breadcrumb-box">
+                <ul className="trevlo-breadcrumb">
+                  <li>
+                    <a href="/">Home</a>
+                  </li>
+                  <li>{data.destination?.[0]?.destination_name}</li>
+                </ul>
+              </div> */}
+            </div>
+          </section>
+            
+            <section className="tour-listing-details tour-listing-details-right section-space">
                 <div className="container">
                 {/* {data.map((item) => ( */}
                      <div className="tour-listing-details__row row">
@@ -146,14 +175,14 @@ const PackageDetail = () => {
             <section className=" mt-5">
                 <div className="container">
                     <div className="tour-listing-details__row row">
-                        <div className="col-xl-8">
+                        <div className="col-xl-12">
                             <div className="tour-listing-details__amenities">
                                 <h3 className="tour-listing-details__title tour-listing-details__amenities-title">
                                     Tour Activities
                                 </h3>
                                 <div className="tour-listing-details__amenities-row row">
                                     {data && data.included_activities && data.included_activities.map((items)=>(
-                                        <div className="col-xl-6 col-lg-6 col-sm-6 wow animated fadeInUp"
+                                        <div className="col-xl-3 col-lg-3 col-sm-6 wow animated fadeInUp"
                                         data-wow-delay="0.1s" data-wow-duration="1500ms" key={items.id}>
                                             <div className="tour-listing-details__amenities-content">
                                                 <i className="fas fa-check-circle" />
@@ -172,7 +201,7 @@ const PackageDetail = () => {
                                 <div className="tour-listing-details__amenities-row row">
                                     {data && data.possible_extensions && data.possible_extensions.map((items)=>(
                                         <div
-                                        className="col-xl-6 col-lg-6 col-sm-6 wow animated fadeInUp"
+                                        className="col-xl-3 col-lg-3 col-sm-6 wow animated fadeInUp"
                                         data-wow-delay="0.1s"
                                         data-wow-duration="1500ms"
                                         key={items.id}
@@ -193,7 +222,7 @@ const PackageDetail = () => {
                             </h3>
                             <div className="tour-listing-details__amenities-row row">
                                 {data && data.whats_included && data.whats_included.map((items)=>(
-                                <div className="col-xl-6 col-lg-6 col-sm-6 wow animated fadeInUp"
+                                <div className="col-xl-4 col-lg-4 col-sm-6 wow animated fadeInUp"
                                 data-wow-delay="0.1s" data-wow-duration="1500ms" key={items.id}>
                                     <div className="tour-listing-details__amenities-content ">
                                         <i className={`fas fa-${items.icon}`} />
@@ -206,6 +235,16 @@ const PackageDetail = () => {
                                 
                             </div>
                             </div>
+                            <div className="tour-listing-details__amenities">
+                            <h3 className="tour-listing-details__title tour-listing-details__amenities-title">Gallery</h3>
+                                <div className="row">
+                                {data && data.gallery && data.gallery.map((items)=>(
+                                    <div className="col-lg-2 col-ms-2">
+                                        <img src={items.small_image} alt={items.alt} className='w-100 h-100 '/>
+                                    </div>
+                                ))}
+                                </div>
+                                </div>
                             <div className="tour-listing-details__amenities">
                             <h3 className="tour-listing-details__title tour-listing-details__amenities-title">
                             Things to Carry
@@ -226,76 +265,11 @@ const PackageDetail = () => {
                                 
                             </div>
                             </div>
-                        </div>
-                        {/* /.col-xl-8 */}
-                        <div className="col-xl-4 col-lg-4">
-                            <aside className="tour-listing-details__sidebar">
-                                <h3>Gallery</h3>
-                                <div className="row">
-                                {data && data.gallery && data.gallery.map((items)=>(
-                                    <div className="col-lg-4 col-ms-4  ">
-                                        <img src={items.small_image} alt={items.alt} className='w-100 h-100'/>
-                                    </div>
-                                ))}
-                                {data && data.testimonials && data.testimonials.map((items)=>(
-                                <div className="product-details__reviews">
-                                    <div className="container-fluid">
-                                        <div className="product-details__reviews-comment">
-                                        <div className="">
-                                            
-                                            {/* <div
-                                            className="product-details__reviews-content wow animated fadeInUp"
-                                            data-wow-delay="0.3s"
-                                            data-wow-duration="1500ms"
-                                            >
-                                                 <div className="product-details__reviews-date d-flex">
-                                            <div
-                                            className="rounded wow animated fadeInUp mt-5 comment-box__image"
-                                            data-wow-delay="0.1s"
-                                            data-wow-duration="1500ms"
-                                            >
-                                            <img src="https://www.earthyhues.com/sites/default/files/imagenodes/small/IMG20220510095159.jpg" alt="Transformative-Travel-tanushree-nair"
-                                            className='w-25 h-25'/>
-                                            </div>
-                                                <p>
-                                                <span className="product-details__reviews-date-text">
-                                                    <a href="https://www.tanushreenair.com/" target="_blank">
-                                                    Tanushree Nair
-                                                    </a>
-                                                </span>
-                                                <br/>
-                                                A vivid  traveler
-                                                </p>
-                                            </div> 
-                                            <div className="text-center">
-                                                <div className="">
-                                                
-                                                    <div className="rounded wow animated fadeInUp " data-wow-delay="0.1s" data-wow-duration="1500ms">
-                                                        <img src="https://www.earthyhues.com/sites/default/files/imagenodes/small/IMG20220510095159.jpg" alt="Transformative-Travel-tanushree-nair"
-                                                        style={{width:'50px' , height: '50px', borderRadius
-                                                        : '50%'}}/>
-                                                    </div>
-                                                        <p>
-                                                            <span className="product-details__reviews-date-text display-6">
-                                                                <a href="https://www.tanushreenair.com/" target="_blank">
-                                                                Tanushree Nair
-                                                                </a>
-                                                            </span>
-                                                        <br/>
-                                                        A vivid  traveler
-                                                        </p>
-                                                    
-                                                </div>
-                                                
-                                            </div>
-                                            <span className="icon fa fa-quote-left"/>
-                                            <p className="product-details__reviews-text">
-                                                In 2022, we were all trying to move past the global pandemic
-                                                situation. While juggling multiple roles and responsibilities, the
-                                                pandemic... <a href='/'>Read more</a>
-                                            </p>
-                                            
-                                            </div> */} 
+                                <div className="product-details__reviews ">
+                                    <div className="container-fluid ">
+                                        <div className="product-details__reviews-comment row">
+                            {data && data.testimonials && data.testimonials.map((items)=>(
+                                        <div className="col-xl-4 col-lg-4 col-sm-6 wow animated fadeInUp" key={items.id}>
                                             <div className="testimonial shadow">
                                                 <span className="icon fa fa-quote-left" />
                                                 <p className="description">
@@ -313,15 +287,20 @@ const PackageDetail = () => {
                                                     <span className="post">{items.customer_details}</span>
                                                 </div>
                                             </div>
-
                                         </div>
+                                        ))}
                                         </div>
                                     </div>
                                 </div>
-                                ))}
-                                </div>
-                            </aside>
                         </div>
+                        {/* /.col-xl-8 */}
+                        {/* <div className="col-xl-4 col-lg-4">
+                            <aside className="tour-listing-details__sidebar">
+                                
+                                
+                               
+                            </aside>
+                        </div> */}
                     {/* /.col-xl-4 */}
                     </div>
                     {/* /.row */}
@@ -329,7 +308,7 @@ const PackageDetail = () => {
                 {/* /.container */}
             </section>
 
-        <div className="container">
+        <div className="container mt-5">
             <div className="sec-title text-center">
                 <p className="sec-title__tagline">World’s best Nature Travel Experience</p>
                 
@@ -342,16 +321,19 @@ const PackageDetail = () => {
       <div className="container">
         <div className="row">
         {data && data.similar_packages && data.similar_packages.map((items)=>(
-            <div className="col-lg-3 col-md-6 wow fadeInUp my-5 " data-wow-delay="100ms" key={items.id}> 
+            <div className="col-lg-3 col-md-6 wow fadeInUp my-5" data-wow-delay="100ms" key={items.id}> 
             <div className="tour-type-two__box">
               <div className="tour-type-two__box__flipper">
                 <div className="tour-type-two__box__front">
                   <div className="tour-type-two__box__front__image">
+                  <div className='testcontent'>
                     <img
                       src={items.package_img}
                       alt={items.package_url}
                     //   style={{aspectRatio: '3/2'}}
+                        className='h-100 testimg'
                     />
+                  </div>
                   </div>
                   <div className="tour-type-two__box__front__content py-5">
                     {/* <div className="tour-type-two__box__front__icon">
@@ -362,7 +344,7 @@ const PackageDetail = () => {
                     </h5>
                     <p className="tour-type-two__box__front__text" dangerouslySetInnerHTML={{__html: items.dates_of_travel}}>
                     </p>
-                    Explore More
+                    {/* Explore More */}
                   </div>
                 </div>
                 <div className="tour-type-two__box__back">
@@ -382,7 +364,7 @@ const PackageDetail = () => {
                     
                     <p className="tour-type-two__box__back__text p-2" style={{fontSize: '12px', lineHeight:'18px'}} dangerouslySetInnerHTML={{__html: items.package_intro.substring(0,250)}}>
                     </p>
-                    <a href='/'>Explore More</a>
+                    {/* <a href='/'>Explore More</a> */}
                   </div>
                 </div>
               </div>
