@@ -7,6 +7,7 @@ import axios from "axios";
 import Typewriter from 'typewriter-effect';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from 'react-router-dom';
 
 
 const responsive = {
@@ -68,7 +69,7 @@ const Banner = () => {
   return (
     <section className="main-slider-three">
       <div className="container">
-        <div className="main-slider-three__content my-5">
+        <div className="main-slider-three__content">
           <h5
             className="main-slider-three__sub-title wow fadeInUp"
             data-wow-delay="200ms"
@@ -184,6 +185,7 @@ const Banner = () => {
                     <div className="banner-form__filter">
                       <span className="icon-filter" />
                     </div>
+                    <Link to='/feedback'>
                     <button
                       type="submit"
                       aria-label="search submit"
@@ -193,6 +195,7 @@ const Banner = () => {
                         <i className="icon-search" />
                       </span>
                     </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -396,7 +399,7 @@ const Banner = () => {
                         <div className="content w-100 my-5 py-5">
                           <div class="w-100">
                             
-                            <div className="d-flex justify-content-center">
+                            <div className="d-flex justify-content-center mobtxt">
                             {/* {cap.map((item) => ( 
                               <div key={item.banner_id}>*/}
                                <span className='display-4 main-slider-three__title'> Find Your&nbsp;</span>&nbsp;

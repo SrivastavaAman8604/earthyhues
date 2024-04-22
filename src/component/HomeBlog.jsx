@@ -25,8 +25,9 @@ const HomeBlog = () => {
             <div class="container">
                 <div class="row">
                 {blogs.map(blog => (
+                    <div className='col-xl-4 col-md-6' key={blog.travel_blogs_id}>
                     <div
-                    className="col-xl-4 col-md-6 wow animated fadeInUp animated"
+                    className=" wow animated fadeInUp animated"
                     data-wow-delay="0.1s"
                     data-wow-duration="1500ms"
                     style={{
@@ -38,7 +39,7 @@ const HomeBlog = () => {
                     >
                     <div className="tour-listing-two__card tour-listing__card">
                         <a
-                        href="tour-listing-details-right.html"
+                        href={`/blog/${blog.travel_blog_url}`}
                         className="tour-listing__card-image-box"
                         >
                         <img
@@ -53,39 +54,39 @@ const HomeBlog = () => {
                         <div className="tour-listing-two__card-show-content">
                         <div className="tour-listing-two__card-show-title-box">
                             <h3 className="tour-listing-two__card-show-title tour-listing__card-title">
-                            <a href="/">{blog.travel_blogs_title}</a>
+                            <a href={`/blog/${blog.travel_blog_url}`}>{blog.travel_blogs_title}</a>
                             </h3>
                             
                         </div>
                         <div className="tour-listing-two__card-show-divider" />
                         <div className="tour-listing__card-bottom">
                             <div className="tour-listing__card-bottom-left">
-                            <div className="tour-listing__card-day">
+                            {/* <div className="tour-listing__card-day">
                                 <span className="icon-clock-1" />
                                 <p className="tour-listing-two__card-show-day-text tour-listing__card-day-text text-small">
                                 3 Day
                                 </p>
-                            </div>
-                            <div className="tour-listing__card-people">
+                            </div> */}
+                            {/* <div className="tour-listing__card-people">
                                 <span className="icon-Duration" />
                                 <p className="tour-listing-two__card-show-people-text tour-listing__card-people-text text-small">
                                 12+
                                 </p>
-                            </div>
-                            </div>
+                            </div> */}
+                        </div>
                             
                         </div>
                         </div>
                         <div className="tour-listing-two__card-hover-content tour-listing__card-content">
                         <h3 className="tour-listing__card-title">
-                            <a href="/">{blog.travel_blogs_title}</a>
+                            <a href={`/blog/${blog.travel_blog_url}`}>{blog.travel_blogs_title}</a>
                         </h3>
-                        <p className="tour-listing__card-text text-small" dangerouslySetInnerHTML={{__html:blog.travel_blog_details.substring(0,200) }}>
+                        <p className="tour-listing__card-text text-small" dangerouslySetInnerHTML={{__html:blog.travel_blog_details.substring(0,150) }}>
                         </p>
                         
                         <div className="tour-listing__card-divider" />
                         <div className="tour-listing__card-bottom">
-                            <div className="tour-listing__card-bottom-left">
+                            {/* <div className="tour-listing__card-bottom-left">
                             <div className="tour-listing__card-day">
                                 <span className="icon-clock-1" />
                                 <p className="tour-listing__card-day-text text-small">3 Day</p>
@@ -94,10 +95,11 @@ const HomeBlog = () => {
                                 <span className="icon-Duration" />
                                 <p className="tour-listing__card-people-text text-small">12+</p>
                             </div>
-                            </div>
+                            </div> */}
                             
                         </div>
                         </div>
+                    </div>
                     </div>
                     </div>
                     ))}

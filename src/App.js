@@ -21,6 +21,8 @@ import TermsOfServices from './Pages/TermsOfServices';
 import RefundPolicy from './Pages/RefundPolicy';
 import YEarthyhues from './Pages/YEarthyhues';
 import OurStory from './Pages/OurStory';
+import FeedBack from './Pages/FeedBack';
+
 
 function App() {
 
@@ -48,6 +50,7 @@ function App() {
         <Route path='/RefundPolicy' element={<RefundPolicy/>}/>
         <Route path='/Why-EarthyHues' element={<YEarthyhues/>}/>
         <Route path='/Our-story' element={<OurStory/>}/>
+        <Route path='/feedback' element={<FeedBack/>}/>
       </Routes>
       <Affiliation/>
       <Footer/>

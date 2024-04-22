@@ -48,7 +48,7 @@ function Testimonial() {
             </span>
           </h3>
         </div>
-      </section>
+        </section>
             <section className='section-space'>
                 <div className="container">
                     <div className="row">
@@ -76,7 +76,7 @@ function Testimonial() {
                                             </div>
                                         </div>
                                     </div>
-                                   <p className="text-justify" dangerouslySetInnerHTML={{__html: index.testimonials_details.substring(0,200)}} style={{textAlign: 'justify'}}></p>
+                                   <p className="text-justify" dangerouslySetInnerHTML={{__html: index.testimonials_details.substr(0,200)}} style={{textAlign: 'justify'}}></p>
                                   
                                    <a href={`/testimonial/${index.testimonials_url}`}>Read More</a>
                                </div>

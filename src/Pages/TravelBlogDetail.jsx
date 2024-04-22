@@ -102,7 +102,7 @@ const TravelBlogDetail = () => {
                                 {data && data.blog_child_para && data.blog_child_para.map((index) => (
                                     <div className="tour-listing-details__reviews-comment-box" key={index.id} style={{ display: 'flex' }}>
                                     <div className="col-md-4">
-                                        <img src={index.blog_image} alt="Cherie S. Cullen" className='w-100 rounded mt-5 float-left'/>
+                                        <img src={index.blog_image} alt={index.blog_heading} className='w-100 rounded mt-5 float-left'/>
                                     </div>
                                     <div className="tour-listing-details__reviews-content wow animated fadeInUp animated"
                                         data-wow-delay="0.3s"

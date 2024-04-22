@@ -6,7 +6,21 @@ function Header() {
   // const [data, setData] = useState({});
   const [destinations, setDestinations] = useState([]);
   const [passions, setPassions] = useState([]);
-  
+
+  useEffect(() => {
+    window.addEventListener('scroll', isSticky);
+    return () => {
+        window.removeEventListener('scroll', isSticky);
+    };
+},[]);
+
+       
+/* Method that will fix header after a specific scrollable */
+       const isSticky = (e) => {
+            const header = document.querySelector('.main-header.main-header--home-three');
+            const scrollTop = window.scrollY;
+            scrollTop >= 250 ? header.classList.add('is-sticky') : header.classList.remove('is-sticky');
+        };
 
   useEffect(() => {
     axios.get('https://www.earthyhues.com/home-menu')
@@ -30,12 +44,20 @@ function Header() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  },[]);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' 
+    });
+  };
 
   return (
-    <header className="main-header main-header--home-three sticky-header sticky-header--normal">
-      <div className="container">
-        <div className="main-header__inner">
+    <header className='main-header main-header--home-three sticky-header sticky-header--normal'>
+        <div className="container">
+      {/* <div className={`${showHeaderInner ? 'main-header__inner' : ''}`}> */}
+      <div className='main-header__inner'>
           <div className="main-header__left">
             <div className="main-header__logo">
               <a href="/">
@@ -84,16 +106,16 @@ function Header() {
                     ))}
                   </ul>
                 </li>
-                <li>
+                <li onClick={scrollToTop}>
                   <Link to="/packages">Packages</Link>
                 </li>
-                <li>
+                <li onClick={scrollToTop}>
                   <Link to="/testimonial">Testimonials</Link>
                 </li>
-                <li>
+                <li onClick={scrollToTop}>
                   <Link to="/conscious-travel">Conscious Travel</Link>
                 </li>
-                <li>
+                <li onClick={scrollToTop}>
                   <Link to="/blog">Travel Blogs</Link>
                 </li>
               </ul>

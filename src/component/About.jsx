@@ -41,10 +41,10 @@ const About = () => {
                 Awaken wanderlust, create timeless memories.
               </li>
             </ul>
-            <Link to="/Our-story" className="trevlo-btn trevlo-btn--base" onClick={scrollToTop}>
+            <Link to="/Our-story" className="trevlo-btn trevlo-btn--base fmob" onClick={scrollToTop}>
               <span>Our Story</span>
             </Link>
-            <Link to="/why-Earthyhues" className="trevlo-btn trevlo-btn--base ms-3" onClick={scrollToTop}>
+            <Link to="/why-Earthyhues" className="trevlo-btn trevlo-btn--base ms-3 fmob" onClick={scrollToTop}>
               <span>Why EarthyHues?</span>
             </Link>
           </div>

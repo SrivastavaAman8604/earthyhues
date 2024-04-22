@@ -152,10 +152,10 @@ function Footer() {
                 <h2 className="footer-widget__title">About Us</h2>
                 {/* /.footer-widget__title */}
                 <ul className="footer-widget__links">
-                <li >
+                    <li>
                         <Link onClick={() => openModal('destination')}>Destinations</Link>
                     </li>
-                    <li >
+                    <li>
                         <Link onClick={() => openModal('passion')}>Passion</Link>
                     </li>
                

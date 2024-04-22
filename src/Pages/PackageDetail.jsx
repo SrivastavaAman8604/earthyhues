@@ -226,6 +226,7 @@ const PackageDetail = () => {
                                 data-wow-delay="0.1s" data-wow-duration="1500ms" key={items.id}>
                                     <div className="tour-listing-details__amenities-content ">
                                         <i className={`fas fa-${items.icon}`} />
+                                        
                                         <h4 className="tour-listing-details__amenities-content-title">
                                         {items.title}
                                         </h4>
