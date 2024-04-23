@@ -7491,8 +7491,8 @@ body.megamenu-popup-active .mobile-nav__content {
     max-width: 300px;
   }
   .main-header__logo img {
-    /* max-width: 100%; */
-    max-width: 70%;
+    max-width: 100%;
+/*     max-width: 70%; */
     margin-top: 10px;
     height: auto;
     width: 100%;
