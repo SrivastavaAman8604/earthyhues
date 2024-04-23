@@ -15213,7 +15213,8 @@ body.boxed-wrapper .main-header__booking-btn {
   margin-top: 5px;
   margin-left: 30%;
   height: auto;
-  width: 80%;
+/*   width: 80%; */
+  width: 60%;
 }
 
 .is-sticky .main-header__inner {
