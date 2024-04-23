@@ -98,7 +98,7 @@ const TravelBlogDetail = () => {
                                 Top places to visit in Bhutan</h3>
                             </div> */}
                             <div className="row">
-                                <div className="col-lg-12">
+                                <div className="col-lg-12 col-md-6 col-sm-6">
                                 {data && data.blog_child_para && data.blog_child_para.map((index) => (
                                     <div className="tour-listing-details__reviews-comment-box" key={index.id} style={{ display: 'flex' }}>
                                     <div className="col-md-4">
