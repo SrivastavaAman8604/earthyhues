@@ -7539,7 +7539,7 @@ body.megamenu-popup-active .mobile-nav__content {
   .main-slider-three__content{
     margin-top: 10rem;
   }
-  .main-slider-three__content .mtop{
+  .main-slider-three__content.mtop{
     margin-top: 5rem;
   }
 }
