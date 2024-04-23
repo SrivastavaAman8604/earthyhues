@@ -69,7 +69,7 @@ function Header() {
               </a>
             </div>
             {/* /.main-header__logo */}
-            <div className="main-header__phone">
+{/*             <div className="main-header__phone">
               <div className="main-header__phone-icon">
                 <span className="icon-phone-1" />
               </div>
@@ -79,7 +79,7 @@ function Header() {
                   <a href="tel: +91 8904278007"> +91 8904278007</a>
                 </h4>
               </div>
-            </div>
+            </div> */}
             {/* /.main-header__phone */}
             <nav className="main-header__nav main-menu">
               <ul className="main-menu__list">
