@@ -7473,6 +7473,7 @@ body.megamenu-popup-active .mobile-nav__content {
   }
   .is-sticky .main-header__logo img {
     margin-left: 0px!important;
+    width: 60%;
   }
   .page-header .container {
     top: 180px;
@@ -15213,8 +15214,9 @@ body.boxed-wrapper .main-header__booking-btn {
   margin-top: 5px;
   margin-left: 30%;
   height: auto;
-/*   width: 80%; */
-  width: 60%;
+  width: 80%;
+/*   width: 60%; */
+
 }
 
 .is-sticky .main-header__inner {
