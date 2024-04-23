@@ -1,4 +1,3 @@
-  alert('Hello')
 $(document).ready(function() {
 
   $(document).on('click', '.mobile-nav__toggler', function(e) {
