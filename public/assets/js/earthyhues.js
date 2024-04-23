@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  alert('Hello')
   $(document).on('click', '.mobile-nav__toggler', function(e) {
     $('.mobile-nav__container').empty();
      e.preventDefault();
