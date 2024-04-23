@@ -69,7 +69,7 @@ const Banner = () => {
   return (
     <section className="main-slider-three">
       <div className="container">
-        <div className="main-slider-three__content">
+        <div className="main-slider-three__content mtop">
           <h5
             className="main-slider-three__sub-title wow fadeInUp"
             data-wow-delay="200ms"
