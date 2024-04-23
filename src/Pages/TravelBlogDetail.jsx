@@ -101,7 +101,7 @@ const TravelBlogDetail = () => {
                                 <div className="col-lg-12 col-md-6 col-sm-6">
                                 {data && data.blog_child_para && data.blog_child_para.map((index) => (
                                     <div className="tour-listing-details__reviews-comment-box" key={index.id} >
-                                    <div className="col-md-4">
+                                    <div className="col-md-4 w-100">
                                         <img src={index.blog_image} alt={index.blog_heading} className='w-100 rounded mt-5 float-left'/>
                                     </div>
                                     <div className="tour-listing-details__reviews-content wow animated fadeInUp animated"
