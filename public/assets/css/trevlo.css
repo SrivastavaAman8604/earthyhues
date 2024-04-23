@@ -4329,7 +4329,8 @@ path {
     max-width: 137%;
     margin-top: 35px;
     height: auto;
-    width: 131%;
+    width: 100%;
+/*     width: 131%; */
 }
 .main-header__right {
   display: flex;
