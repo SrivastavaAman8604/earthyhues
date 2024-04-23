@@ -7539,6 +7539,9 @@ body.megamenu-popup-active .mobile-nav__content {
   .main-slider-three__content{
     margin-top: 10rem;
   }
+  .main-slider-three__content .mtop{
+    margin-top: 5rem;
+  }
 }
 @media (max-width: 360px) {
   .offer-one__img-one {
