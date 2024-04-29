@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Upcomingtrip = () => {
   const[data,setData] = useState([])
@@ -31,7 +32,8 @@ const Upcomingtrip = () => {
       <div className="container">
         <div className="row">
           {data.map((item) => (
-            <div className="col-lg-4 col-md-6 wow fadeInUp my-5" data-wow-delay="100ms">
+            <div className="col-lg-4 col-md-6 wow fadeInUp my-5" data-wow-delay="100ms" key={item.upcomingtrip_id}>
+            <Link to={`packages/${item.upcomingtrip_url}`}>
             <div className="tour-type-two__box">
               <div className="tour-type-two__box__flipper">
                 <div className="tour-type-two__box__front">
@@ -78,6 +80,7 @@ const Upcomingtrip = () => {
                 </div>
               </div>
             </div>
+            </Link>
           </div>
           ))}
           </div>

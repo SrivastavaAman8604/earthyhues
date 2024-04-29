@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import Loading from './Loading'
 
 function Testimonial() {
     const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
         const fetchData = async()=>{
@@ -12,11 +14,16 @@ function Testimonial() {
                 setData(response.data)
             }catch(error){
                 console.error('Error fetching Testimonial:',error)
-            }
+            }finally {
+                setLoading(false); // Set loading to false regardless of success or failure
+              }
         };
         fetchData() 
     },[])
 
+    if (loading) {
+        return <Loading />; 
+      }
 
     return (
         <div>
@@ -76,9 +83,9 @@ function Testimonial() {
                                             </div>
                                         </div>
                                     </div>
-                                   <p className="text-justify" dangerouslySetInnerHTML={{__html: index.testimonials_details.substr(0,200)}} style={{textAlign: 'justify'}}></p>
+                                   <p className="text-justify" dangerouslySetInnerHTML={{__html: index.testimonials_details.substring(0,200)}} style={{textAlign: 'justify'}}></p>
                                   
-                                   <a href={`/testimonial/${index.testimonials_url}`}>Read More</a>
+                                   <a class=" trevlo-btn trevlo-btn--base text-white" href={`/testimonial/${index.testimonials_url}`} style={{padding: "10px 20px"}}><span>Read More</span></a>
                                </div>
                            </div>
                            </div>

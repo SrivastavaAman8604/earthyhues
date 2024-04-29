@@ -1,13 +1,11 @@
 import React,{ useState,useEffect}  from 'react'
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 // import { Carousel } from 'react-responsive-carousel';
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Typewriter from 'typewriter-effect';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Link } from 'react-router-dom';
+import FormHome from './FormHome';
 
 
 const responsive = {
@@ -69,7 +67,7 @@ const Banner = () => {
   return (
     <section className="main-slider-three">
       <div className="container">
-        <div className="main-slider-three__content mtop">
+        <div className="main-slider-three__content marg">
           <h5
             className="main-slider-three__sub-title wow fadeInUp"
             data-wow-delay="200ms"
@@ -104,222 +102,7 @@ const Banner = () => {
             </a>
           </div> */}
         </div>
-        <div className="banner-form wow fadeInUp" data-wow-delay="300ms">
-          <div className="container">
-            <form
-              className="banner-form__wrapper"
-              action="https://bracketweb.com/trevlo-html/tour-listing-top-search.html"
-            >
-              <div className="row">
-                <div className="col-lg-4">
-                  <div className="banner-form__control">
-                    <label htmlFor="location">Location</label>
-                    <select name="location" classname="selectpicker" id="location">
-                      <option value="select">Where to Next?</option>
-                      <option value="spain">Spain</option>
-                      <option value="africa">Africa</option>
-                      <option value="europe">Europe</option>
-                      <option value="thailand">Thailand</option>
-                      <option value="dubai">Dubai</option>
-                      <option value="australia">Australia</option>
-                      <option value="swizerlan">Swizerlan</option>
-                    </select>
-                    <i className="icon-location-2" />
-                  </div>
-                </div>
-                <div className="col-lg-2">
-                  <div className="banner-form__control">
-                    <label htmlFor="type">Type</label>
-                    <select name="type" classname="selectpicker" id="type">
-                      <option value="select">Booking Type</option>
-                      <option value="spain">Adventure</option>
-                      <option value="africa">Beach</option>
-                      <option value="europe">Discovery</option>
-                      <option value="thailand">Mountain</option>
-                      <option value="dubai">Hills</option>
-                      <option value="australia">Couple</option>
-                    </select>
-                    <i className="icon-hiking" />
-                  </div>
-                </div>
-                <div className="col-lg-2">
-                  <div className="banner-form__control">
-                    <label htmlFor="date">Date From</label>
-                    {/* <input
-                      className="trevlo-multi-datepicker"
-                      id="date"
-                      type="text"
-                      name="date"
-                      placeholder="Select Date"
-                    /> */}
-                    <DatePicker
-                        selected={startDate}
-                        onChange={handleChange}
-                        startDate={startDate}
-                        endDate={endDate}
-                        selectsRange
-                    />
-                    <i className="icon-calendar-5" />
-                  </div>
-                </div>
-                <div className="col-lg-3">
-                  <div className="banner-form__control">
-                    <label htmlFor="guests">Guests</label>
-                    <button className="banner-form__qty-minus sub">
-                      <i className="icon-minus-3" />
-                    </button>
-                    <input
-                      id="guests"
-                      type="number"
-                      defaultValue={2}
-                      name="guests"
-                      placeholder={2}
-                    />
-                    <button className="banner-form__qty-plus add">
-                      <i className="icon-plus-3" />
-                    </button>
-                  </div>
-                </div>
-                <div className="col-lg-1">
-                  <div className="banner-form__btn">
-                    <div className="banner-form__filter">
-                      <span className="icon-filter" />
-                    </div>
-                    <Link to='/feedback'>
-                    <button
-                      type="submit"
-                      aria-label="search submit"
-                      className="trevlo-btn trevlo-btn--base"
-                    >
-                      <span>
-                        <i className="icon-search" />
-                      </span>
-                    </button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div className="banner-form__popup">
-            <div className="banner-form__popup__slider-wrapper">
-              <form action="#" method="get" className="clearfix">
-                <div id="slider-ranger" />
-              </form>
-            </div>
-            <h3 className="banner-form__popup__title">Language</h3>
-            <ul className="banner-form__popup__checkbox">
-              <li>
-                <input type="checkbox" name="english" id="english" />
-                <label htmlFor="english">
-                  <span />
-                  English
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="french" id="french" />
-                <label htmlFor="french">
-                  <span />
-                  French
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="german" id="german" />
-                <label htmlFor="german">
-                  <span />
-                  German
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="japanese" id="japanese" />
-                <label htmlFor="japanese">
-                  <span />
-                  Japanese
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="thailand" id="thailand" />
-                <label htmlFor="thailand">
-                  <span />
-                  Thailand
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="arabic" id="arabic" />
-                <label htmlFor="arabic">
-                  <span />
-                  Arabic
-                </label>
-              </li>
-            </ul>
-            <h3 className="banner-form__popup__title">Amenities</h3>
-            <ul className="banner-form__popup__checkbox">
-              <li>
-                <input type="checkbox" name="Accepts" id="Accepts" />
-                <label htmlFor="Accepts">
-                  <span />
-                  Accepts Credit Cards
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="Parking" id="Parking" />
-                <label htmlFor="Parking">
-                  <span />
-                  Car Parking
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="Coupons" id="Coupons" />
-                <label htmlFor="Coupons">
-                  <span />
-                  Free Coupons
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="Laundry" id="Laundry" />
-                <label htmlFor="Laundry">
-                  <span />
-                  Laundry Service
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="Outdoor" id="Outdoor" />
-                <label htmlFor="Outdoor">
-                  <span />
-                  Outdoor Seating
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="Reservations" id="Reservations" />
-                <label htmlFor="Reservations">
-                  <span />
-                  Reservations
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="Restaurant" id="Restaurant" />
-                <label htmlFor="Restaurant">
-                  <span />
-                  Restaurant
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="Smoking" id="Smoking" />
-                <label htmlFor="Smoking">
-                  <span />
-                  Smoking Allowed
-                </label>
-              </li>
-              <li>
-                <input type="checkbox" name="Internet" id="Internet" />
-                <label htmlFor="Internet">
-                  <span />
-                  Wireless Internet
-                </label>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <FormHome/>
         
       </div>
       {/* banner-form */}

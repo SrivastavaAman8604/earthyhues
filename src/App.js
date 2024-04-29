@@ -28,7 +28,7 @@ function App() {
 
   return (
     <Router>
-      <Header/>
+      <Header style={{backgroundColor: '#2D2330'}}/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         {/* <Route path='/destinations/' element={<Destinations/>}/> */}

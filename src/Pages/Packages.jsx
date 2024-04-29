@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Loading from './Loading'
 
 function Packages() {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -12,7 +14,9 @@ function Packages() {
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching Package:', error);
-            }
+            }finally {
+                setLoading(false); // Set loading to false regardless of success or failure
+              }
         };
         fetchData();
     }, []);
@@ -24,6 +28,10 @@ function Packages() {
         });
     };
 
+    if (loading) {
+        return <Loading />; 
+      }
+    
     return (
         <div>
             {/* <section className="page-header">
@@ -76,13 +84,16 @@ function Packages() {
                                 <Link to={`/packages/${packageData.package_url}`} onClick={scrollToTop}>
                                 <div className="card">
                                     <div className='testcontent'>
-                                    <img className="card-img-top testimg" src={packageData.package_img} alt={packageData.package_url} />
+                                    <img loading="lazy" className="card-img-top testimg" src={packageData.package_img} alt={packageData.package_url} />
                                     </div>
                                     <div className="card-body">
                                         <h4 dangerouslySetInnerHTML={{ __html: packageData.package_title }}></h4>
                                         <p className="card-text" dangerouslySetInnerHTML={{ __html: packageData.package_intro.substring(0, 150) }} style={{textAlign: 'justify'}}></p>
                                         {/* <Link to={'/packagesDetail'}>Explore More</Link> */}
-                                        <Link to={`/packages/${packageData.package_url}`} onClick={scrollToTop}>Explore More</Link>
+                                        <Link to={`/packages/${packageData.package_url}`} onClick={scrollToTop} class=" trevlo-btn trevlo-btn--base text-white" style={{padding: "10px 20px"}}><span>
+                                            Explore More
+                                            </span>
+                                        </Link>
                                     </div>
                                 </div>
                             </Link>

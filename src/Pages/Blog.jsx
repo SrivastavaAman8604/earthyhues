@@ -1,10 +1,14 @@
 import React, {useState,useEffect} from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import Loading from './Loading'
 
 function Blog() {
     const [data, setData] = useState([]);
     const [selectedBlogId, setSelectedBlogId] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const scrollToTop = () => {
       window.scrollTo({
@@ -20,7 +24,9 @@ function Blog() {
             setData(response.data)
           }catch(error){
             console.error('Error fetching data:',error)
-          }  
+          }  finally {
+            setLoading(false); // Set loading to false regardless of success or failure
+          }
         }
         fetchData()
     },[])
@@ -29,6 +35,10 @@ function Blog() {
       setSelectedBlogId(blogId);
     };
 
+    if (loading) {
+      return <Loading />; 
+    }
+    
     return (
         <div>
             {/* <section className="page-header">
@@ -201,7 +211,7 @@ function Blog() {
               <h3 className="post-category__title">Tags:</h3>
               <div className="post-category__btn-group">
               {item.blog_tags.map((tag) => (
-                  <a key={tag.blog_nid} href="blog-list-right.html" className="post-category__btn trevlo-btn trevlo-btn--base">
+                  <a key={tag.blog_nid} className="post-category__btn trevlo-btn trevlo-btn--base">
                     <span>{tag.blog_tag}</span>
                   </a>
                 ))}

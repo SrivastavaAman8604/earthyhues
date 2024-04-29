@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'react-loading-skeleton/dist/skeleton.css'
+import Loading from './Loading'
 
 function Conscious() {
   const [data, setData] = useState({ general_content_top: '', general_content_bottom: '', testimonials_conscious: [] });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,14 +14,16 @@ function Conscious() {
         setData(response.data);
       } catch (error) {
         console.error("Error in Fetching Data", error);
+      }finally {
+        setLoading(false); // Set loading to false regardless of success or failure
       }
     };
     fetchData();
   }, []);
 
-  // if(!data){
-  //   <Loading/>
-  // }
+  if (loading) {
+    return <Loading />; 
+  }
   
   
   return (

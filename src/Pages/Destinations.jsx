@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import Loading from './Loading'
 
 const customStyles = {
   content: {
@@ -23,6 +24,7 @@ const Destinations = () => {
   const [data, setData] = useState({});
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const openModal = (location) => {
     setSelectedLocation(location);
@@ -42,15 +44,20 @@ const Destinations = () => {
         setData(response.data);
       } catch (error) {
         console.error('Error fetching destination:', error.response.data);
+      }finally {
+        setLoading(false); // Set loading to false regardless of success or failure
       }
     };
     
     fetchData();
   }, [destination_id]);
 
+  if (loading) {
+    return <Loading />; 
+  }
   return (
     <div>
-      <section className="page-header">
+      <section className="page-header" style={{backgroundColor: '#2D2330'}}>
         {/* <div className="page-header__bg" /> */}
         <div className="container">
         {/* <h2 className="offer-one__heading sec-title__heading " >
@@ -158,7 +165,7 @@ const Destinations = () => {
                           {data.packages?.map((packageItem) => (
                             <div key={packageItem.package_id} className="destination-sidebar__tour-item">
                               <div className="destination-sidebar__tour-img mt-2">
-                                <img src={packageItem.package_img} alt="destination-tour" style={{aspectRatio: '3/2'}}/>
+                                <img src={packageItem.package_img} loading="lazy" alt="destination-tour" style={{aspectRatio: '3/2'}}/>
                               </div>
                               <div className="destination-sidebar__tour-content">
                                 <h4 className="destination-sidebar__tour-title">

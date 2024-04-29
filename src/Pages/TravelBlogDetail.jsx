@@ -1,13 +1,13 @@
 import React,{ useState , useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
-
+import Loading from './Loading'
 
 const TravelBlogDetail = () => {
 
     const { travel_blog_id } = useParams();
-
     const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,10 +18,16 @@ const TravelBlogDetail = () => {
 
             } catch (error) {
                 console.log('Error while loading:', error.response.data);
-            }
+            }finally {
+                setLoading(false); // Set loading to false regardless of success or failure
+              }
         };
         fetchData();
     }, [travel_blog_id]);
+
+    if (loading) {
+        return <Loading />; 
+      }
 
     return (
     <div>
@@ -98,10 +104,10 @@ const TravelBlogDetail = () => {
                                 Top places to visit in Bhutan</h3>
                             </div> */}
                             <div className="row">
-                                <div className="col-lg-12 col-md-6 col-sm-6">
+                                <div className="col-lg-12">
                                 {data && data.blog_child_para && data.blog_child_para.map((index) => (
-                                    <div className="tour-listing-details__reviews-comment-box" key={index.id} >
-                                    <div className="col-md-6 w-100">
+                                    <div className="tour-listing-details__reviews-comment-box" key={index.id} style={{ display: 'flex' }}>
+                                    <div className="col-md-4">
                                         <img src={index.blog_image} alt={index.blog_heading} className='w-100 rounded mt-5 float-left'/>
                                     </div>
                                     <div className="tour-listing-details__reviews-content wow animated fadeInUp animated"
