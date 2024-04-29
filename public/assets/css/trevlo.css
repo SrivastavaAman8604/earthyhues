@@ -4329,8 +4329,7 @@ path {
     max-width: 137%;
     margin-top: 35px;
     height: auto;
-    width: 100%;
-/*     width: 131%; */
+    width: 131%;
 }
 .main-header__right {
   display: flex;
@@ -7469,12 +7468,14 @@ body.megamenu-popup-active .mobile-nav__content {
   }
 }
 @media (max-width: 480px) {
+  .main-slider-three__content.marg{
+    margin-top: 10rem!important;
+  }
   .fmob{
     padding: 20px;
   }
   .is-sticky .main-header__logo img {
     margin-left: 0px!important;
-    width: 60%;
   }
   .page-header .container {
     top: 180px;
@@ -7493,8 +7494,8 @@ body.megamenu-popup-active .mobile-nav__content {
     max-width: 300px;
   }
   .main-header__logo img {
-    max-width: 100%;
-/*     max-width: 70%; */
+    /* max-width: 100%; */
+    max-width: 70%;
     margin-top: 10px;
     height: auto;
     width: 100%;
@@ -7538,9 +7539,6 @@ body.megamenu-popup-active .mobile-nav__content {
   }
   .main-slider-three__content{
     margin-top: 10rem;
-  }
-  .main-slider-three__content.mtop{
-    margin-top: 5rem;
   }
 }
 @media (max-width: 360px) {
@@ -7909,6 +7907,7 @@ body.megamenu-popup-active .mobile-nav__content {
   background-color: var(--trevlo-primary, #2D2330);
 }
 @media (max-width: 767px) {
+  
   .counter-three {
     padding: 90px 0 80px;
   }
@@ -7978,6 +7977,9 @@ body.megamenu-popup-active .mobile-nav__content {
   margin: 0;
 }
 @media (max-width: 1199px) {
+  .marg{
+    margin-top: 30px;
+  }
   .counter-three__text {
     margin: 0 auto;
   }
@@ -15184,6 +15186,7 @@ body.boxed-wrapper .main-header__booking-btn {
     object-fit: cover;
 }
 
+
 .card-height{
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
@@ -15219,8 +15222,6 @@ body.boxed-wrapper .main-header__booking-btn {
   margin-left: 30%;
   height: auto;
   width: 80%;
-/*   width: 60%; */
-
 }
 
 .is-sticky .main-header__inner {
@@ -15228,3 +15229,11 @@ body.boxed-wrapper .main-header__booking-btn {
   padding-bottom: 0px;
 }
 
+select.selectpicker{
+  display: block!important;
+  border: none;
+}
+
+.main-slider-three__content.marg{
+  margin-top: 30px;
+}

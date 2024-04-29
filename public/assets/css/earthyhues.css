@@ -41,7 +41,6 @@
 
 .main-slider-three__content {
     width: 40%!important;
-
   }
   
 @media only screen and (max-width: 600px) {
@@ -50,8 +49,9 @@
     }
   }
 
-/* 
-.content__container__list {
-    margin-top: 100%!important;
-    padding-left: 353px!important;
-} */
+
+/*Aman Css*/
+.borleft.banner-form__control::after{
+    display: none;
+}
+
