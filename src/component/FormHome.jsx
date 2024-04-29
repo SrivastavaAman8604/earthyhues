@@ -18,16 +18,16 @@ const FormHome = () => {
     // Calculate the date 12 months from now
     const twelveMonthsLater = new Date(currentDate.getFullYear() + 1, currentDate.getMonth());
 
-    useEffect(() => {
-      // Retrieve data from localStorage
-      const storedData = JSON.parse(localStorage.getItem('formHomeData'));
-      if (storedData && !isDataExpired(storedData.timestamp)) {
-          setDestinations(storedData.destinations);
-          setPassions(storedData.passions);
-      } else {
-          console.error('data is not expire')
-      }
-  }, []);
+  //   useEffect(() => {
+  //     // Retrieve data from localStorage
+  //     const storedData = JSON.parse(localStorage.getItem('formHomeData'));
+  //     if (storedData && !isDataExpired(storedData.timestamp)) {
+  //         setDestinations(storedData.destinations);
+  //         setPassions(storedData.passions);
+  //     } else {
+  //         console.error('data is not expire')
+  //     }
+  // }, []);
 
 
     const handleChange = (date) => {
