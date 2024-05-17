@@ -515,12 +515,12 @@ path {
   color: var(--trevlo-white, #ffffff);
   font-size: var(--trevlo-size-2xl, 16px);
   font-family: var(--trevlo-font, "DM Sans", sans-serif);
-  font-weight: 700;
-  padding: 20px 40px;
+  /* font-weight: 700; */
+  padding: 15px 25px;
   line-height: 1;
   transition: 500ms;
-  text-transform: capitalize;
-  border-radius: 6px;
+  /* text-transform: capitalize; */
+  border-radius: 4px;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -1732,11 +1732,11 @@ path {
   transition: all 400ms ease;
 }
 .testimonials-card__meta__designation {
-  font-size: var(--trevlo-size-md, 12px);
+  font-size: var(--trevlo-size-lg, 13px);
   color: var(--trevlo-white, #ffffff);
   letter-spacing: 0.48px;
-  line-height: 1;
-  text-transform: uppercase;
+  line-height: 18px;
+  /* text-transform: uppercase; */
   margin-bottom: 0;
   transition: all 400ms ease;
 }
@@ -4382,12 +4382,30 @@ path {
 @media (max-width: 1799px) {
   .main-header__phone {
     padding-left: 38px;
-  }
+    float: right;
+    margin-top: 40px;
+    margin-right: 30px;
+}
+.is-sticky .main-header__phone {
+/* display: none; */
+float: right;
+    margin-top: 10px;
+    margin-right: 30px;
+}
 }
 @media (max-width: 1599px) {
   .main-header__phone {
     padding-left: 0;
-  }
+    float: right;
+    margin-top: 40px;
+    margin-right: 30px;
+}
+.is-sticky .main-header__phone {
+/* display: none; */
+float: right;
+    margin-top: 10px;
+    margin-right: 30px;
+}
 }
 @media (max-width: 1399px) {
   .main-header__phone {
@@ -9402,7 +9420,7 @@ sec-title__title, .sec-title__heading {
   margin-bottom: 10px;
 }
 .tour-listing-details__explore-text {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .tour-listing-details__calender {
@@ -14802,7 +14820,8 @@ body.boxed-wrapper .main-header__booking-btn {
 .video-one {
   position: relative;
   background-color: var(--trevlo-primary, #2D2330);
-  padding: 120px 0 191px;
+  /* padding: 120px 0 191px; */
+  padding: 65px 0 140px;
 }
 @media (max-width: 767px) {
   .video-one {
@@ -15042,7 +15061,7 @@ body.boxed-wrapper .main-header__booking-btn {
 .tour-type-two__box__front__content {
   position: relative;
   background-color: var(--trevlo-white, #ffffff);
-  border-radius: 10px 10px 0px 10px;
+  /* border-radius: 10px 10px 0px 10px; */
   border: 1px solid var(--trevlo-white3, #EBE6DE);
   padding: 0 20px 22px;
   text-align: center;
@@ -15313,6 +15332,13 @@ select.selectpicker{
   padding-top: 20px;
 }
 
-/* .mobview {
-  flex-direction: column-reverse;
-} */
+.about-three.pad{
+  padding: 50px 0;
+}
+.tour-type.pad{
+  padding: 50px 0!important;
+  margin: -82px auto 20px!important;
+}
+.testimonial-one.pad{
+  padding: 10px 0 55px;
+}
