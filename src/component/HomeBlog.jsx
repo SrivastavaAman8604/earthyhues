@@ -4,7 +4,7 @@ const HomeBlog = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('https://www.earthyhues.com/api-home-page-travel-blogs')
+        fetch('https://www.earthyhues.com/newadmin/api-home-page-travel-blogs')
             .then(response => response.json())
             .then(data => setBlogs(data))
             .catch(error => console.error('Error fetching data:', error));
@@ -24,7 +24,7 @@ const HomeBlog = () => {
         <section class="tour-listing ">
             <div class="container">
                 <div class="row">
-                {blogs.map(blog => (
+                {blogs.map((blog) => (
                     <div className='col-xl-4 col-md-6' key={blog.travel_blogs_id}>
                     <div
                     className=" wow animated fadeInUp animated"
@@ -35,12 +35,11 @@ const HomeBlog = () => {
                         animationDuration: "1500ms",
                         animationDelay: "0.1s",
                         animationName: "fadeInUp"
-                    }}
-                    >
+                    }}>
                     <div className="tour-listing-two__card tour-listing__card">
                         <a
                         href={`/blog/${blog.travel_blog_url}`}
-                        className="tour-listing__card-image-box"
+                        className="tour-listing__card-image-box hobl"
                         >
                         <img
                             src={blog.travel_blog_img}

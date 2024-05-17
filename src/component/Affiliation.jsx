@@ -13,13 +13,24 @@ const Affiliation = () => {
             </div>
         </div>
         <section className='d-flex mb-5'>
-            <div className="container text-center">
-                    <img src="../assets/affiliatedimg/IIMB-Logo-NSRCEL.png" alt="IIMB-Logo-NSRCEL" className='w-25 mx-2'/>
-                    <img src="../assets/affiliatedimg/Guardian-of-Nature-2.png" alt="affiliatedimg/Guardian-of-Nature" className='w-25 mx-2'/>
-                    <img src="../assets/affiliatedimg/world-travel-tourism-council-logo.png" alt="world-travel-tourism-council-logo" className='w-25 mx-2'/>
-                    <img src="../assets/affiliatedimg/GreenSignature (1).png" alt="greenSignature-logo" className='mx-3' style={{width:'13%'}}/>
+    <div className="container text-center">
+        <div className="row flex-lg-row mobview">
+            <div className='col-lg-3 col-md-3 mobaff'>
+                <img src="../assets/affiliatedimg/IIMB-Logo-NSRCEL.png" alt="IIMB-Logo-NSRCEL" className=' w-100'/>
             </div>
-        </section>
+            <div className='col-lg-3 col-md-3 mobaff'>
+                <img src="../assets/affiliatedimg/Guardian-of-Nature-2.png" alt="affiliatedimg/Guardian-of-Nature" className='w-100'/>
+            </div>
+            <div className='col-lg-3 col-md-3 mobaff'>
+                <img src="../assets/affiliatedimg/world-travel-tourism-council-logo.png" alt="world-travel-tourism-council-logo" className='w-100'/>
+            </div>
+            <div className='col-lg-3 col-md-3 mobaff'>
+                <img src="../assets/affiliatedimg/GreenSignature (1).png" alt="greenSignature-logo" className=' mobvi ' style={{width: '43%'}}/>
+            </div>
+        </div>
+    </div>
+</section>
+
     </div>
   )
 }

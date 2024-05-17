@@ -2,6 +2,7 @@ import React,{ useState , useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import Loading from './Loading'
+import { Helmet } from 'react-helmet';
 
 const TravelBlogDetail = () => {
 
@@ -12,7 +13,7 @@ const TravelBlogDetail = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://www.earthyhues.com/api-travel-blog/${travel_blog_id}`);
+                const response = await axios.get(`https://www.earthyhues.com/newadmin/api-travel-blog/${travel_blog_id}`);
                 setData(response.data[0]);
                 // console.log(response.data[0]);
 
@@ -31,6 +32,11 @@ const TravelBlogDetail = () => {
 
     return (
     <div>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>{`${data.heading_name} | Earthy Hues`}</title>
+            <meta name="description" content="React application" />
+        </Helmet>
         <section className="page-header">
             <div className="page-header__bg" />
             <div className="container">
@@ -63,7 +69,7 @@ const TravelBlogDetail = () => {
                             data-wow-delay="0.1s"
                             data-wow-duration="1500ms"
                         >
-                            <h3 className="tour-listing-details__title tour-listing-details__overview-title">
+                            <h3 className="tour-listing-details__title tour-listing-details__overview-title ">
                             {data.heading_name}
                             </h3>
                             <h5>{data.sub_heading_name}</h5>
@@ -106,7 +112,7 @@ const TravelBlogDetail = () => {
                             <div className="row">
                                 <div className="col-lg-12">
                                 {data && data.blog_child_para && data.blog_child_para.map((index) => (
-                                    <div className="tour-listing-details__reviews-comment-box" key={index.id} style={{ display: 'flex' }}>
+                                    <div className="tour-listing-details__reviews-comment-box blogdet" key={index.id} >
                                     <div className="col-md-4">
                                         <img src={index.blog_image} alt={index.blog_heading} className='w-100 rounded mt-5 float-left'/>
                                     </div>
@@ -125,7 +131,7 @@ const TravelBlogDetail = () => {
                                         }}>
                                             
                                         <div className="tour-listing-details__reviews-inner-content">
-                                            <div className="tour-listing-details__reviews-info">
+                                            <div className="tour-listing-details__reviews-info pt-4">
                                                 <h3 className="tour-listing-details__reviews-name">{index.blog_heading}</h3>    
                                             </div>
                                         </div>

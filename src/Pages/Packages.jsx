@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Loading from './Loading'
+import { Helmet } from 'react-helmet';
 
 function Packages() {
     const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ function Packages() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://www.earthyhues.com/apipackages');
+                const response = await axios.get('https://www.earthyhues.com/newadmin/apipackages');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching Package:', error);
@@ -34,6 +35,11 @@ function Packages() {
     
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Packages of Earthy Hues | Earthy Hues</title>
+                <meta name="description" content="React application" />
+            </Helmet>
             {/* <section className="page-header">
                 <div className="page-header__bg" />
                 <div className="container">

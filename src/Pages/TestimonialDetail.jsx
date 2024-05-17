@@ -1,6 +1,7 @@
 import React ,{useState, useEffect}from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 
 const TestimonialDetail = () => {
@@ -12,7 +13,7 @@ const TestimonialDetail = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://www.earthyhues.com/api-testimonials/${testimonials_id}`);
+                const response = await axios.get(`https://www.earthyhues.com/newadmin/api-testimonials/${testimonials_id}`);
                 setData(response.data[0]);
                 // console.log(response.data);
             } catch (error) {
@@ -24,6 +25,11 @@ const TestimonialDetail = () => {
    
   return (
     <div>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>{`${data.testimonials_customer_name} | Earthy Hues`}</title>
+            <meta name="description" content="React application" />
+        </Helmet>
         {/* <section className="page-header">
             <div className="page-header__bg" />
             <div className="container">
@@ -60,9 +66,11 @@ const TestimonialDetail = () => {
               marginTop: "-62px",
               paddingLeft: '200',
               fontSize: "25px!important",
-              left: 23
+              left: 23,
+              overflowWrap: 'break-word',
+              //wordWrap: 'break-word', // or overflowWrap: 'break-word'
             }}>
-            <span className="font-bernadette-rough display-4" style={{ fontSize: 51 }}>
+            <span className="font-bernadette-rough display-6" style={{marginLeft: '18%'}}>
             {data.testimonials_customer_name}
             </span>
           </h3>

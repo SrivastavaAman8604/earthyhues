@@ -37,7 +37,7 @@ const FeedBack = (location) => {
   
     e.target.reset();
     // Send data using Axios
-    axios.post('https://www.earthyhues.com/search-form-submit', formDataToSend)
+    axios.post('https://www.earthyhues.com/newadmin/search-form-submit', formDataToSend)
       .then((response) => {
         console.log('Data sent successfully:', response.data);
         // alert(JSON.stringify(response.data));

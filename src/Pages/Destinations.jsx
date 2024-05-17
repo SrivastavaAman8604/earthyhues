@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import Loading from './Loading'
+import { Helmet } from 'react-helmet';
 
 const customStyles = {
   content: {
@@ -39,7 +40,7 @@ const Destinations = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://www.earthyhues.com/destinations/${destination_id}`);
+        const response = await axios.get(`https://www.earthyhues.com/newadmin/destinations/${destination_id}`);
         // console.log(response.data);
         setData(response.data);
       } catch (error) {
@@ -57,6 +58,13 @@ const Destinations = () => {
   }
   return (
     <div>
+      
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{`${data.destination?.[0]?.destination_name} | Earthy Hues`}</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
+
       <section className="page-header" style={{backgroundColor: '#2D2330'}}>
         {/* <div className="page-header__bg" /> */}
         <div className="container">
@@ -103,13 +111,13 @@ const Destinations = () => {
             <div className="col-lg-12">
               <div className="row">
                   {data.location?.map((location) => (
-                <div className="col-xl-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1500ms">
+                <div className="col-xl-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1500ms" onClick={() => openModal(location)}>
                     <div key={location.location_id} className="tour-listing__card">
-                    <a href="/" className="tour-listing__card-image-box">
+                    <a onClick={() => openModal(location)} className="tour-listing__card-image-box">
                       <img src={location.location_img_small} alt="assets/images/tours/tour-3-1.jpg"  className="tour-listing__card-image" style={{aspectRatio:'3/2'}}/>
                         <div className="tour-listing__card-image-overlay" />
                     </a>
-                    <a href="/" className="tour-listing__card-wishlist">
+                    <a onClick={() => openModal(location)} className="tour-listing__card-wishlist">
                       <span className="icon-heart" />
                     </a>
                     <div className="tour-listing__card-content p-4">
@@ -120,7 +128,7 @@ const Destinations = () => {
                         </a> */}
                         </div>
                         <h3 className="tour-listing__card-title">
-                          <a href="tour-listing-details-right.html">
+                          <a onClick={() => openModal(location)}>
                             {/* Turkey Balloons flying */}
                             {location.location_name}
                           </a>

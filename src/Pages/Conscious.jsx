@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'react-loading-skeleton/dist/skeleton.css'
 import Loading from './Loading'
+import { Helmet } from 'react-helmet';
 
 function Conscious() {
   const [data, setData] = useState({ general_content_top: '', general_content_bottom: '', testimonials_conscious: [] });
@@ -10,7 +11,7 @@ function Conscious() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://www.earthyhues.com/api-conscious-travel');
+        const response = await axios.get('https://www.earthyhues.com/newadmin/api-conscious-travel');
         setData(response.data);
       } catch (error) {
         console.error("Error in Fetching Data", error);
@@ -28,6 +29,11 @@ function Conscious() {
   
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Conscious Travel | Earthy Hues</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {/* <section className="page-header">
         <div className="page-header__bg" />
         <div className="container">
@@ -122,9 +128,9 @@ function Conscious() {
                 <img src="./assets/img/HT feature1.jpg" alt="" className='w-100'/>
                 <p className="sidebar-blog__posts-title pt-3">We are excited to be featured in Hindustan Times for our insights on sustainable travel practices. We feel honored to have the opportunity to share our perspectives on eco-conscious travel with a larger audience.@earthyhuestours we support sustainable travel that protects the environment supports local communities, preserves cultural heritage, and promotes personal enrichment.We can take some simple steps to reduce our impact and ensure that future generations can also enjoy the world's beauty and diversity.</p>
                 
-                <a href="https://www.earthyhues.com/sites/all/themes/bootstrap/HT feature1.jpg" className="comment-box__btn trevlo-btn trevlo-btn--white-two"><span className='px-5'>View my Article
+                <a href="https://www.earthyhues.com/newadmin/sites/all/themes/bootstrap/HT feature1.jpg" className="comment-box__btn trevlo-btn trevlo-btn--white-two"><span className='px-5'>View my Article
                 </span></a>
-                <a href="https://www.earthyhues.com/sites/all/themes/bootstrap/HT feature.jpeg" className="comment-box__btn trevlo-btn trevlo-btn--white-two mt-3"><span className='px-5'>View whole Page</span></a>
+                <a href="https://www.earthyhues.com/newadmin/sites/all/themes/bootstrap/HT feature.jpeg" className="comment-box__btn trevlo-btn trevlo-btn--white-two mt-3"><span className='px-5'>View whole Page</span></a>
                 
               </div>
             </aside>

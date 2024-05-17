@@ -39,7 +39,7 @@ function Footer() {
 
 
     useEffect(() => {
-        axios.get('https://www.earthyhues.com/home-menu')
+        axios.get('https://www.earthyhues.com/newadmin/home-menu')
         .then((response) => {
             if (response.data && Array.isArray(response.data)) {
             // setData(response.data);
@@ -81,9 +81,9 @@ function Footer() {
       <footer className="main-footer @@extraClassName">
         <div
         className="main-footer__bg"
-        style={{
-            backgroundImage: "url(assets/images/backgrounds/footer-bg.png)"
-        }}
+        // style={{
+        //     backgroundImage: "url(assets/images/backgrounds/footer-bg.png)"
+        // }}
         />
         {/* /.main-footer__bg */}
         <div className="container">
@@ -95,8 +95,8 @@ function Footer() {
             data-wow-duration="1500ms"
             >
             <div className="footer-widget footer-widget--newsletter">
-                <h2 className="footer-widget__title">Company</h2>
-                <div className="main-footer__logo-box text-center">
+                {/* <h2 className="footer-widget__title">Company</h2> */}
+                <div className="main-footer__logo-box ">
                 <img
                     src="../assets/earthyhues-image/logo.png"
                     alt="logo-dark"
@@ -311,7 +311,9 @@ function Footer() {
       <i className="fa fa-times" />
     </span>
     <div className="logo-box">
-        <img src="../assets/earthyhues-image/logo.png" alt="Trevlo HTML"  width={146}/>
+        <Link to="/">
+            <img src="../assets/earthyhues-image/logo.png" alt="Trevlo HTML"  width={146}/>
+        </Link>
     </div>
     {/* /.logo-box */}
     <div className="mobile-nav__container" />

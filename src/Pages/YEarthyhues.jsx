@@ -1,8 +1,14 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 const YEarthyhues = () => {
   return (
     <div>
+        <Helmet>
+        <meta charSet="utf-8" />
+            <title>Why Earthy Hues | Earthy Hues</title>
+            <meta name="description" content="React application" />
+        </Helmet>
       <section className="page-header">
             <div className="page-header__bg" />
             <div className="container">

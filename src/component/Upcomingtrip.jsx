@@ -8,7 +8,7 @@ const Upcomingtrip = () => {
   useEffect(()=>{
       const fetchData = async()=>{
         try{
-          const response = await axios.get('https://www.earthyhues.com/api-upcoming-trip-home')
+          const response = await axios.get('https://www.earthyhues.com/newadmin/api-upcoming-trip-home')
           setData(response.data)
         }catch(error){
           console.error('Error fetching Testimonial:',error)
@@ -32,7 +32,7 @@ const Upcomingtrip = () => {
       <div className="container">
         <div className="row">
           {data.map((item) => (
-            <div className="col-lg-4 col-md-6 wow fadeInUp my-5" data-wow-delay="100ms" key={item.upcomingtrip_id}>
+            <div className="col-lg-4 col-md-6 col-sm-12 wow fadeInUp mb-5" data-wow-delay="100ms" key={item.upcomingtrip_id}>
             <Link to={`packages/${item.upcomingtrip_url}`}>
             <div className="tour-type-two__box">
               <div className="tour-type-two__box__flipper">

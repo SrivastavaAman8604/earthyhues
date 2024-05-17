@@ -1,6 +1,3 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-// import Article from './Article';
 import Testmonial from './Testimonial';
 import About from './About';
 import Header from './Header';
@@ -8,23 +5,12 @@ import Banner from './Banner';
 // import Places from './Places'; 
 import Blog from './HomeBlog';
 import Upcomingtrip from './Upcomingtrip';
-import HomeDestination from './HomeDestination';
+// import HomeDestination from './HomeDestination';
+import VideoHome from './VideoHome';
 // import YchoseUs from './YchoseUs';
 
 const Home = () => {
-  const [data, setData] = useState([])
-
-    useEffect(()=>{
-        const fetchData = async()=>{
-            try{
-                const response = await axios.get('https://www.earthyhues.com/api-home-page-video')
-                setData(response.data)
-            }catch(error){
-                console.error('Error fetching Testimonial:',error)
-            }
-        };
-        fetchData() 
-    },[])
+  
 
   return (
     <>
@@ -49,33 +35,8 @@ const Home = () => {
   {/* Tour Listing two End */}
 
   {/* CTA Two End */}
-  <section className="video-one">
-    <div className="video-one__bg jarallax" data-jarallax="" data-speed="0.3"
-      data-imgposition="50% -100%" style={{backgroundImage: "url(assets/images/backgrounds/video-bg-1.jpg)"}} />
-    <div className="container">
-      <div className="video-one__content wow fadeInUp" data-wow-delay="100ms">
-        {/* <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" className="video-popup">
-          <i className="fa fa-play" />
-        </a>
-        <h5 className="video-one__sub-title">Are you ready to travel?</h5>
-        <h2 className="video-one__title">
-          Tevily is a World LeadingOnline
-          <br /> Tour Booking Platform
-        </h2> */}
-        <div className="row">
-          {data.map((item)=>(
-            <div className="col-lg-6" key={item.id}>
-            <iframe src={item.youtube_video_src} title="video section" style={{width:'100%',height:'60vh'}}></iframe>
-            {/* <video width={320} height={240} controls>
-              <source src={item.youtube_video_src} type="video/mp4" />
-              <source src={item.youtube_video_src} type="video/mp4" />
-            </video> */}
-          </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
+  <VideoHome/>
+
   <section className="tour-type">
     <div
       className="tour-type__bg"
@@ -135,7 +96,7 @@ const Home = () => {
   {/* /.client-carousel */}
 
   {/* Destination Start */}
-  <HomeDestination/>
+  {/* <HomeDestination/> */}
   {/* Destination End */}
   
   {/* Counter Three Start */}

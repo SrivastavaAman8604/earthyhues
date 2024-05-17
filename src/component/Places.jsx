@@ -7,7 +7,7 @@ const Places = () => {
   useEffect(()=>{
     const fetchData = async()=>{
       try{
-        const response = await axios.get('https://www.earthyhues.com/api-popular-destinations-home')
+        const response = await axios.get('https://www.earthyhues.com/newadmin/api-popular-destinations-home')
         setData(response.data)
       }catch(error){
         console.error('Error fetching Testimonial:',error)

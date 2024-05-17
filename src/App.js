@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import React from 'react';
 import './App.css';
 import Header from './component/Header';
@@ -24,11 +23,13 @@ import OurStory from './Pages/OurStory';
 import FeedBack from './Pages/FeedBack';
 
 
+
 function App() {
 
   return (
     <Router>
       <Header style={{backgroundColor: '#2D2330'}}/>
+      
       <Routes>
         <Route path='/' element={<Home/>}/>
         {/* <Route path='/destinations/' element={<Destinations/>}/> */}
@@ -53,6 +54,7 @@ function App() {
         <Route path='/feedback' element={<FeedBack/>}/>
       </Routes>
       <Affiliation/>
+      {/* <Call/> */}
       <Footer/>
     </Router>
   );

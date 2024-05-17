@@ -18,16 +18,15 @@ const FormHome = () => {
     // Calculate the date 12 months from now
     const twelveMonthsLater = new Date(currentDate.getFullYear() + 1, currentDate.getMonth());
 
-  //   useEffect(() => {
-  //     // Retrieve data from localStorage
-  //     const storedData = JSON.parse(localStorage.getItem('formHomeData'));
-  //     if (storedData && !isDataExpired(storedData.timestamp)) {
-  //         setDestinations(storedData.destinations);
-  //         setPassions(storedData.passions);
-  //     } else {
-  //         console.error('data is not expire')
-  //     }
-  // }, []);
+    useEffect(() => {
+      const storedData = JSON.parse(localStorage.getItem('formHomeData'));
+      if (storedData && !isDataExpired(storedData.timestamp)) {
+          setDestinations(storedData.destinations);
+          setPassions(storedData.passions);
+      } else {
+          console.error('data is not expire')
+      }
+  }, []);
 
 
     const handleChange = (date) => {
@@ -40,7 +39,7 @@ const FormHome = () => {
     };
 
     useEffect(() => {
-        axios.get('https://www.earthyhues.com/home-menu')
+        axios.get('https://www.earthyhues.com/newadmin/home-menu')
         .then((response) => {
             if (response.data && Array.isArray(response.data)) {
             // setData(response.data);
@@ -83,7 +82,7 @@ const FormHome = () => {
           numTravelers: numTravelers
       };
       // alert(JSON.stringify(formData));
-      axios.post('https://www.earthyhues.com/search-form-submit', formData)
+      axios.post('https://www.earthyhues.com/newadmin/search-form-submit', formData)
           .then((response) => {
               console.log('Data sent successfully:', response.data);
               // alert(JSON.stringify(response.data))
@@ -105,96 +104,96 @@ const FormHome = () => {
   
   return (
     <div>
-      <div className="banner-form wow fadeInUp" data-wow-delay="300ms">
-          <div className="container">
-            <form className="banner-form__wrapper" onSubmit={handleSubmit}>
-              <div className="row">
-                <div className="col-lg-4">
-                  <div className="banner-form__control">
-                    <label htmlFor="location">Location</label>
-                    <select name="location" className="selectpicker w-75 mt-2 border-bottom" id="location" placeholder='select your Destination'>
-                      <option value="Anywhere">Anywhere</option>
-                      {destinations.map((destination) => (
-                      <option key={destination.destination_id} value={destination.destination_id}>
-                        {destination.destination_name}
-                      </option>
-                    ))}
-                    </select>
-                    <i className="icon-location-2" />
-                  </div>
-                </div>
-                <div className="col-lg-2">
-                  <div className="banner-form__control">
-                    <label htmlFor="passion">Type of Vacation</label>
-                    <select name="passion" className="selectpicker w-75 mt-2 border-bottom" id="type" placeholder='select your passion'> 
-                      <option value="Not decided">Not decided</option>
-                    {passions.map((item) => (
-                      <option key={item.passion_id} value={item.passion_id}>{item.passion_name}</option>
-                    ))}
-                    </select>
-                    <i className="icon-hiking" style={{fontSize: '26px'}}/>
-                  </div>
-                </div>
-                
-                <div className="col-lg-2">
-                    <div className="banner-form__control">
-                        <label htmlFor="date">When?</label>
-                        <DatePicker
-                    selected={selectedMonth}
-                    onChange={handleChange}
-                    onMonthChange={(date) => setSelectedMonth(date)}
-                    dateFormat="MMMM yyyy" // Format to display only month and year
-                    showMonthYearPicker // Show only the month and year picker
-                    placeholder='Select Month' // Placeholder text
-                    filterDate={filterDate} // Filter dates to allow only the next 12 months
-                    minDate={nextMonth} // Minimum selectable date
-                    maxDate={twelveMonthsLater} // Maximum selectable date
-                    required
-                />
-                        <i className="icon-calendar-5" />
-                    </div>
-                </div>
-
-                <div className="col-lg-3">
-                <div className="banner-form__control borleft">
-                  <label htmlFor="guests">No. of Travelers</label>
-                  <button type="button" className="banner-form__qty-minus sub mt-4" onClick={() => numTravelers>1 ?setNumTravelers(numTravelers - 1): 0}>
-                    <i className="icon-minus-3" />
-                  </button>
-                  <input
-                     type="number" value={numTravelers} name="guests" min={1} className='border-bottom'
-                    onChange={(e) => {
-                        const newValue = parseInt(e.target.value, 10);
-                        if (newValue >= 1) { // Ensure minimum of 1 traveler
-                          setNumTravelers(newValue);
-                        }
-                      }}
-                  />
-                  <button type="button" className="banner-form__qty-plus add mt-4" onClick={() => setNumTravelers(numTravelers + 1)}>
-                    <i className="icon-plus-3" />
-                  </button>
-                </div>
-                </div>
-                <div className="col-lg-1">
-                  <div className="banner-form__btn">
-                    {/* <div className="banner-form__filter">
-                      <span className="icon-filter" />
-                    </div> */}
-                    {/* <Link to='/feedback'> */}
-                    <button type="submit" aria-label="search submit" className="trevlo-btn trevlo-btn--base">
-                      <span>
-                        <i className="icon-search" />
-                      </span>
-                    </button>
-                    {/* </Link> */}
-                  </div>
-                </div>
-              </div>
-            </form>
+  <div className="banner-form wow fadeInUp" data-wow-delay="300ms">
+    <div className="container">
+      <form className="banner-form__wrapper" onSubmit={handleSubmit}>
+        <div className="row">
+          <div className="col-lg-4">
+            <div className="banner-form__control">
+              <label htmlFor="location" >Location
+              </label>
+              <select name="location" className="selectpicker w-75 mt-2 border-bottom" id="location" placeholder='select your Destination'>
+                <option value="Anywhere">Anywhere</option>
+                {destinations.map((destination) => (
+                  <option key={destination.destination_id} value={destination.destination_name}>
+                    {destination.destination_name}
+                  </option>
+                ))}
+              </select>
+              <i className="icon-location-2" />
+            </div>
           </div>
-          
+          <div className="col-lg-2">
+            <div className="banner-form__control">
+              <label htmlFor="passion">Type of Vacation</label>
+              <select name="passion" className="selectpicker w-75 mt-2 border-bottom" id="type" placeholder='select your passion'> 
+                <option value="Not decided">Not decided</option>
+                {passions.map((item) => (
+                  <option key={item.passion_id} value={item.passion_name}>{item.passion_name}</option>
+                ))}
+              </select>
+              <i className="icon-hiking" style={{fontSize: '26px'}}/>
+            </div>
+          </div>
+
+          <div className="col-lg-2">
+            <div className="banner-form__control">
+              <label htmlFor="date">When?</label>
+              <DatePicker
+                selected={selectedMonth}
+                onChange={handleChange}
+                onMonthChange={(date) => setSelectedMonth(date)}
+                dateFormat="MMMM yyyy" // Format to display only month and year
+                showMonthYearPicker // Show only the month and year picker
+                placeholder='Select Month' // Placeholder text
+                filterDate={filterDate} // Filter dates to allow only the next 12 months
+                minDate={nextMonth} // Minimum selectable date
+                maxDate={twelveMonthsLater} // Maximum selectable date
+                required
+              />
+              <i className="icon-calendar-5" />
+            </div>
+          </div>
+
+          <div className="col-lg-3">
+            <div className="banner-form__control borleft">
+              <label htmlFor="guests">No. of Travelers</label>
+              <button type="button" className="banner-form__qty-minus sub mt-4" onClick={() => numTravelers>1 ?setNumTravelers(numTravelers - 1): 0}>
+                <i className="icon-minus-3" />
+              </button>
+              <input
+                type="number" value={numTravelers} name="guests" min={1} className='border-bottom'
+                onChange={(e) => {
+                  const newValue = parseInt(e.target.value, 10);
+                  if (newValue >= 1) { // Ensure minimum of 1 traveler
+                    setNumTravelers(newValue);
+                  }
+                }}
+              />
+              <button type="button" className="banner-form__qty-plus add mt-4" onClick={() => setNumTravelers(numTravelers + 1)}>
+                <i className="icon-plus-3" />
+              </button>
+            </div>
+          </div>
+          <div className="col-lg-1">
+            <div className="banner-form__btn">
+              {/* <div className="banner-form__filter">
+                <span className="icon-filter" />
+              </div> */}
+              {/* <Link to='/feedback'> */}
+              <button type="submit" aria-label="search submit" className="trevlo-btn trevlo-btn--base">
+                <span>
+                  <i className="icon-search" />
+                </span>
+              </button>
+              {/* </Link> */}
+            </div>
+          </div>
         </div>
+      </form>
     </div>
+  </div>
+</div>
   )
 }
 

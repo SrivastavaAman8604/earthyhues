@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import Loading from './Loading'
+import { Helmet } from 'react-helmet';
 
 function Blog() {
     const [data, setData] = useState([]);
@@ -20,7 +21,7 @@ function Blog() {
     useEffect(()=>{
         const fetchData = async ()=>{
           try{
-            const response = await axios.get('https://www.earthyhues.com/api-travel-blog')
+            const response = await axios.get('https://www.earthyhues.com/newadmin/api-travel-blog')
             setData(response.data)
           }catch(error){
             console.error('Error fetching data:',error)
@@ -41,6 +42,11 @@ function Blog() {
     
     return (
         <div>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Travel Blog | Earthy Hues</title>
+            <meta name="description" content="React application" />
+          </Helmet>
             {/* <section className="page-header">
             <div className="page-header__bg" />
                 <div className="container">

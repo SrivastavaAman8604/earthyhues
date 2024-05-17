@@ -6,6 +6,7 @@ import Typewriter from 'typewriter-effect';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import FormHome from './FormHome';
+import Loading from '../Pages/Loading';
 
 
 const responsive = {
@@ -35,11 +36,12 @@ const Banner = () => {
   const [endDate, setEndDate] = useState();
   const [data,setData] = useState([]);
   const [cap,setCap] = useState([]);
+  const [loading, setLoading] = useState(true);
   
 
   useEffect(() => {
     axios
-      .get("https://www.earthyhues.com/home-page-banner")
+      .get("https://www.earthyhues.com/newadmin/home-page-banner")
       .then((response) => {
         if (Array.isArray(response.data) && response.data.length >= 2) {
           setData(response.data[1]);console.log(response.data);
@@ -55,6 +57,9 @@ const Banner = () => {
       })
       .catch((error) => {
         console.error(error);
+      }) 
+      .finally(() => {
+        setLoading(false); // Set loading to false regardless of success or failure
       });
   }, []);
  
@@ -63,6 +68,10 @@ const Banner = () => {
     setStartDate(startDate);
     setEndDate(endDate);
   };
+
+  if (loading) {
+    return <Loading />; 
+  }
 
   return (
     <section className="main-slider-three">

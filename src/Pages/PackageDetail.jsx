@@ -2,29 +2,43 @@ import React,{useState, useEffect} from 'react'
 import './PackageDetail.css'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Loading from './Loading'
 
 const PackageDetail = () => {
 
     const { package_id } = useParams();
 
     const [data, setData] = useState([{}]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://www.earthyhues.com/apipackages/${package_id}`);
+                const response = await axios.get(`https://www.earthyhues.com/newadmin/apipackages/${package_id}`);
                 setData(response.data[0]);
                 // console.log(response.data);
             } catch (error) {
                 console.log('Error while loading:', error.response.data);
-            }
+            }finally {
+                setLoading(false); // Set loading to false regardless of success or failure
+              }
         };
         fetchData();
     }, [ package_id ]);
 
 
+    if (loading) {
+        return <Loading />; 
+      }
+
     return (
     <div>
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>{`${data.package_title} | Earthy Hues`}</title>
+                <meta name="description" content="React application" />
+            </Helmet>
             {/* <section className="page-header">
                  <div className="page-header__bg" /> 
                 <div className="container">

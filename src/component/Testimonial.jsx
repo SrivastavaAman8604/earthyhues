@@ -1,20 +1,17 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios';
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from 'react-responsive-carousel';
-import { Link } from 'react-router-dom';
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import './testimonial.css'
 
 function Testmonial() {
-  const [isFullTextVisible, setIsFullTextVisible] = useState(false);
+  // const [isFullTextVisible, setIsFullTextVisible] = useState(false);
   const [feedback, setFeedback] = useState([]);
-  const [showMore, setShowMore] = useState(false);
+  // const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-    axios.get('https://www.earthyhues.com/home-page-feedback')
+    axios.get('https://www.earthyhues.com/newadmin/home-page-feedback')
       .then((response) => {
         if (Array.isArray(response.data) && response.data.length >= 1) {
           setFeedback(response.data);
@@ -29,48 +26,59 @@ function Testmonial() {
 
   }, []);
 
-  const handleToggle = () =>{
-    setShowMore(!showMore)
-  }
+  // const handleToggle = () =>{
+  //   setShowMore(!showMore)
+  // }
 
-  const handleClick = () => {
-    setIsFullTextVisible(!isFullTextVisible);
-  };
-  const renderFullText = () => {
-    if (isFullTextVisible) {
-      return <div>This is the full text.</div>;
-    } else {
-      return null;
-    }
-  };
+  // const handleClick = () => {
+  //   setIsFullTextVisible(!isFullTextVisible);
+  // };
+  // const renderFullText = () => {
+  //   if (isFullTextVisible) {
+  //     return <div>This is the full text.</div>;
+  //   } else {
+  //     return null;
+  //   }
+  // };
     
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3, // optional, default to 1.
+      slidesToSlide: 3, 
       margin: 50,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 768 },
-      items: 3,
-      slidesToSlide: 3, // optional, default to 1.
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2, 
       margin: 20,
     },
     mobile: {
-      breakpoint: { max: 767, min: 464 },
+      breakpoint: { max: 464, min: 0 },
       items: 1,
-      slidesToSlide: 1 // optional, default to 1.
+      slidesToSlide: 1 
     }
+    // tablet: {
+    //   breakpoint: { max: 1024, min: 768 },
+    //   items: 3,
+    //   slidesToSlide: 3, 
+    //   margin: 20,
+    // },
+    // mobile: {
+    //   breakpoint: { max: 767, min: 464 },
+    //   items: 1,
+    //   slidesToSlide: 1 
+    // }
   };
 
   return (
     <section className="testimonial-one testimonial-one--home mt-5">
     <div
       className="testimonial-one__bg"
-      style={{
-        backgroundImage: "url(assets/images/shapes/testimonial-1-bg-2.png)"
-      }}
+      // style={{
+      //   backgroundImage: "url(assets/images/shapes/testimonial-1-bg-2.png)"
+      // }}
     ></div>
     {/* /.testimonial-one__bg */}
     <div className="container">
@@ -123,8 +131,8 @@ function Testmonial() {
         // dotListClass="custom-dot-list-style"
       >
       {feedback.map((item) => (
-        <div className="col-10 text-center m-4">
-          <div className="item" key={item.feedback_id} >
+        <div className="col-10 text-center m-4" key={item.feedback_id} >
+          <div className="item" >
               <div className="testimonials-card text-center " style={{height: '90%'}}>
                 
                 <div className="testimonials-card__image">

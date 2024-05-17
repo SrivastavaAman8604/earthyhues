@@ -3,6 +3,7 @@ import { useParams , Link} from 'react-router-dom';
 import axios from 'axios';
 import Loading from './Loading'
 import Modal from 'react-modal';
+import { Helmet } from 'react-helmet';
 
 const customStyles = {
   content: {
@@ -39,7 +40,7 @@ const Passion = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://www.earthyhues.com/passions/${passion_id}`);
+        const response = await axios.get(`https://www.earthyhues.com/newadmin/passions/${passion_id}`);
         // console.log(response.data);
         setData(response.data);
       } catch (error) {
@@ -56,8 +57,19 @@ const Passion = () => {
     return <Loading />; 
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' 
+    });
+  };
   return (
     <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>{`${data.passion_name} | Earthy Hues`}</title>
+      <meta name="description" content="React application"/>
+    </Helmet>
     {/* <section className="page-header">
         <div className="page-header__bg" />
         <div className="container">
@@ -135,35 +147,38 @@ const Passion = () => {
                 </h3>
                 <div className="row">
                 {data.packages?.map((packageItem) => (
-                    <div key={packageItem.package_id} className="col-md-4 wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1500ms">
+                    <div key={packageItem.package_id} className="col-md-4 wow animated fadeInUp" data-wow-delay="0.1s" data-wow-duration="1500ms" onClick={() => openModal(packageItem)}>
                         <div className="tour-listing__card">
-                        <a
-                            href="tour-listing-details-right.html"
+                        <Link
+                            to={`/packages/${packageItem.package_url}`}
+                            onClick={scrollToTop}
                             className="tour-listing__card-image-box">
                             <img
                             src={packageItem.package_img}
                             alt={packageItem.package_title}
                             className="tour-listing__card-image" style={{aspectRatio:'3/2'}}/>
                             <div className="tour-listing__card-image-overlay" />
-                        </a>
-                        <a
-                            href="/"
+                        </Link>
+                        <Link
+                            to={`/packages/${packageItem.package_url}`}
+                            onClick={scrollToTop}
                             className="tour-listing__card-wishlist">
                             <span className="icon-heart" />
-                        </a>
+                        </Link>
                         <div className="tour-listing__card-content">
                             <div className="tour-listing__card-camera-group">
                             </div>
                             <h3 className="tour-listing__card-title">
-                            <a href="tour-listing-details-right.html">
+                            <Link
+                            to={`/packages/${packageItem.package_url}`} onClick={scrollToTop}>
                             {packageItem.package_title}
-                            </a>
+                            </Link>
                             </h3>
-                            <p className="tour-listing__card-text text-small" style={{textAlign: 'justify'}}>
+                            <p className="tour-listing__card-text text-small" style={{textAlign: 'justify'}} onClick={scrollToTop}>
                                 {packageItem.package_intro.substring(0,200)}.
                             </p>
-                            <Link className=' trevlo-btn trevlo-btn--base text-white' style={{padding: '10px 20px'}}>
-                                <span onClick={() => openModal(packageItem)}>Explore More</span>
+                            <Link to={`/packages/${packageItem.package_url}`} className=' trevlo-btn trevlo-btn--base text-white' style={{padding: '10px 20px'}}>
+                                <span onClick={scrollToTop}>Explore More</span>
                             </Link>
                         </div>
                         </div>

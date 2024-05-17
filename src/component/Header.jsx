@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Call from '../Call';
 
 function Header() {
   // const [data, setData] = useState({});
@@ -23,7 +24,7 @@ function Header() {
         };
 
   useEffect(() => {
-    axios.get('https://www.earthyhues.com/home-menu')
+    axios.get('https://www.earthyhues.com/newadmin/home-menu')
       .then((response) => {
         if (response.data && Array.isArray(response.data)) {
           // setData(response.data);
@@ -54,7 +55,20 @@ function Header() {
   };
 
   return (
+    <>
     <header className='main-header main-header--home-three sticky-header sticky-header--normal '>
+                  {/* <Call/> */}
+                <div className="main-header__phone"> 
+                 <div className="main-header__phone-icon">
+                <span className="icon-phone-1" />
+              </div>
+              <div className="main-header__phone-text">
+                <p className="main-header__phone-title">Call Anytime</p>
+                <h4 className="main-header__phone-number" style={{color:'#50b0d3'}}>
+                  <a href="tel: +91 8904278007"> +91 8904278007</a>
+                </h4>
+              </div> 
+             </div>
         <div className="container">
       {/* <div className={`${showHeaderInner ? 'main-header__inner' : ''}`}> */}
       <div className='main-header__inner '>
@@ -65,30 +79,32 @@ function Header() {
                   src="../assets/earthyhues-image/logo.png"
                   alt="Trevlo HTML"
                   width={146}
-                />
+                  />
               </a>
             </div>
             {/* /.main-header__logo */}
-            <div className="main-header__phone">
-              <div className="main-header__phone-icon">
+            {/* <div className="main-header__phone"> */}
+              {/* <div className="main-header__phone-icon">
                 <span className="icon-phone-1" />
               </div>
               <div className="main-header__phone-text">
                 <p className="main-header__phone-title">Call Anytime</p>
-                <h4 className="main-header__phone-number">
+                <h4 className="main-header__phone-number" style={{color:'#50b0d3'}}>
                   <a href="tel: +91 8904278007"> +91 8904278007</a>
                 </h4>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
             {/* /.main-header__phone */}
+            {/* <Call/> */}
             <nav className="main-header__nav main-menu">
+              
               <ul className="main-menu__list">
                 <li className="dropdown">
                   <a href="/">Destinations</a>
                   <ul className="sub-menu des">
                     {destinations.map((destination) => (
                       <li key={destination.destination_id}>
-                        <Link to={`/destinations/${destination.destination_url}`}>{destination.destination_name}</Link>
+                        <Link to={`/destinations/${destination.destination_url}`} onClick={scrollToTop}>{destination.destination_name}</Link>
                       </li>
                     ))}
                   </ul>
@@ -100,7 +116,7 @@ function Header() {
                       <li key={item.passion_id}>
 
                         
-                        <Link to={`/passion/${item.passion_url}`}>{item.passion_name}</Link>
+                        <Link to={`/passion/${item.passion_url}`} onClick={scrollToTop}>{item.passion_name}</Link>
 
                       </li>
                     ))}
@@ -152,6 +168,7 @@ function Header() {
       </div>
       {/* /.container-fluid */}
     </header>
+    </>
   )
 }
 

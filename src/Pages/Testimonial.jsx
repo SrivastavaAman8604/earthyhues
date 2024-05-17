@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Loading from './Loading'
+import { Helmet } from 'react-helmet';
 
 function Testimonial() {
     const [data, setData] = useState([])
@@ -10,7 +11,7 @@ function Testimonial() {
     useEffect(()=>{
         const fetchData = async()=>{
             try{
-                const response = await axios.get('https://www.earthyhues.com/api-testimonials')
+                const response = await axios.get('https://www.earthyhues.com/newadmin/api-testimonials')
                 setData(response.data)
             }catch(error){
                 console.error('Error fetching Testimonial:',error)
@@ -27,6 +28,11 @@ function Testimonial() {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Testimonials | Earthy Hues</title>
+                <meta name="description" content="React application" />
+            </Helmet>
             {/* <section className="page-header">
                 <div className="page-header__bg" />
                 <div className="container">
