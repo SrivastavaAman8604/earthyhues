@@ -13,7 +13,8 @@
     padding: 0px 0 0;
 }
 .main-footer__logo-box{
-    padding: 10px 0 18px 0;
+    /* padding: 10px 0 18px 0; */
+    padding: 12px 0 18px 64px;
 }
 
 .main-heading-title:after {
